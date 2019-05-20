@@ -63,6 +63,7 @@ class Home extends React.Component {
             >
               Home
             </Typography>
+
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
@@ -70,13 +71,14 @@ class Home extends React.Component {
             </IconButton>
           </Toolbar>
         </AppBar>
+
         <Drawer
           variant="permanent"
           classes={{
             paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
           }}
           open={this.state.open}
-        >
+          >
           <div className={classes.toolbarIcon}>
             <IconButton onClick={this.handleDrawerClose}>
             <ChevronLeftIcon />
@@ -84,8 +86,11 @@ class Home extends React.Component {
           </div>
           <Divider />
           <List>{mainListItems}</List>
+
           <Divider />
+
           <List>{secondaryListItems}</List>
+
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
@@ -94,13 +99,13 @@ class Home extends React.Component {
 
             Form/card can pop up here
           </Typography>
+
           <Typography component="div" className={classes.chartContainer}>
+           </Typography>
           <Divider />
-          </Typography>
+
           <Typography variant="h4" gutterBottom component="h2">
             Products
-
-            
 
           </Typography>
           <div className={classes.tableContainer}>
