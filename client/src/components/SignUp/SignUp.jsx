@@ -62,7 +62,8 @@ function SignUp(props) {
           >
             Sign Up
           </Button>
-
+         <br/>
+         <br/>
          Have An Account <a href="/LogIn" class="active">LogIn</a> Here
 
         </form>

@@ -1,10 +1,5 @@
 export default theme => ({
-    appBar: {
-      position: 'relative',
-    },
-    icon: {
-      marginRight: theme.spacing.unit * 2,
-    },
+  
     heroUnit: {
       backgroundColor: theme.palette.background.paper,
     },
@@ -45,3 +40,4 @@ export default theme => ({
       padding: theme.spacing.unit * 6,
     },
   });
+  

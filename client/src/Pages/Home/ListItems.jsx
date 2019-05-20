@@ -8,6 +8,7 @@ import DiscriptionIcon from '@material-ui/icons/Description';
 import PeopleIcon from '@material-ui/icons/People';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import CreatePlan from '../../components/CreatePlan';
 
 export const mainListItems = (
   <div>
@@ -15,14 +16,14 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+    <ListItemText primary="Dashboard"/>
     </ListItem>
 
-    <ListItem button>
-      <ListItemIcon>
+    <ListItem button >
+      <ListItemIcon >
         <DiscriptionIcon />
       </ListItemIcon>
-      <ListItemText primary="Plans" />
+      <ListItemText primary="Create Plan"/> 
     </ListItem>
 
     <ListItem button>
