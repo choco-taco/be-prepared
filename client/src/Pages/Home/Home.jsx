@@ -16,6 +16,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import List from '@material-ui/core/List';
 import { mainListItems, secondaryListItems } from './ListItems';
 import styles from './Home.styles';
+import Album from '../../components/Album';
 
 
 class Home extends React.Component {
@@ -38,11 +39,14 @@ class Home extends React.Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
+
+       {/*App Bar */}
         <AppBar
+          color='primary'
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
         >
-          <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
+          <Toolbar disableGutters=          {!this.state.open} className=         {classes.toolbar}>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
@@ -51,7 +55,7 @@ class Home extends React.Component {
                 classes.menuButton,
                 this.state.open && classes.menuButtonHidden,
               )}
-            >
+             >
               <MenuIcon />
             </IconButton>
             <Typography
@@ -64,47 +68,51 @@ class Home extends React.Component {
               Home
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={100} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
           </Toolbar>
         </AppBar>
+        {/*App Bar End */}
+
         <Drawer
           variant="permanent"
           classes={{
             paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
           }}
           open={this.state.open}
-        >
+        > 
           <div className={classes.toolbarIcon}>
             <IconButton onClick={this.handleDrawerClose}>
             <ChevronLeftIcon />
             </IconButton>
           </div>
+
           <Divider />
+
           <List>{mainListItems}</List>
+
           <Divider />
+
           <List>{secondaryListItems}</List>
+
         </Drawer>
+        
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Typography variant="h4" gutterBottom component="h2">
-            Orders
+            Plans
 
-            Form/card can pop up here
+            <Album />
+
           </Typography>
+
           <Typography component="div" className={classes.chartContainer}>
           <Divider />
           </Typography>
-          <Typography variant="h4" gutterBottom component="h2">
-            Products
-
-            
-
-          </Typography>
-          <div className={classes.tableContainer}>
-          </div>
+         
+         
         </main>
       </div>
     );
