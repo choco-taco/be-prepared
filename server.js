@@ -20,7 +20,8 @@ app.use(routes);
 app.use(express.json());
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/be-prepared-db", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/be-prepared-db", {useNewUrlParser: true, autoIndex: false, useFindAndModify: false});
+
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
