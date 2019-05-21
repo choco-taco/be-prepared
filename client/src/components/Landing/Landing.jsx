@@ -11,7 +11,6 @@ import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core
 import Link from '@material-ui/core/Link';
 import styles from './Landing.styles';
 import bluegrey from '@material-ui/core/colors/blueGrey';
-import blue from '@material-ui/core/colors/blue';
 
 
 const theme = createMuiTheme({
