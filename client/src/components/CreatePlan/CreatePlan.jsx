@@ -24,6 +24,7 @@ function getStepContent(step) {
       return <InfoForm />;
     case 2:
     //   return <Review />;
+    break;
     default:
       throw new Error('Unknown step');
   }
