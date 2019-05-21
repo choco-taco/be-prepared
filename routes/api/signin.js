@@ -1,16 +1,11 @@
 const User = require('../../models/User');
 const UserSession = require('../../models/User');
-// import UserSession from '../../models/usersession';
-
-
 
 
 module.exports = (app) => {
 	/*
 	*Sign up
 	*/
-
-
 
 	app.post("/api/account/signup", (req, res, next) => {
 		const { body } = req;
