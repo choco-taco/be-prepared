@@ -1,4 +1,5 @@
 import React from "react";
+import Button from '@material-ui/core/Button';
 
 export function Input(props) {
     return (
@@ -10,7 +11,7 @@ export function Input(props) {
 
 export function FormBtn(props) {
     return (
-        <button {...props}>{props.children}
-        </button>
+        <Button type="submit" {...props}>{props.children}
+        </Button>
     );
 }

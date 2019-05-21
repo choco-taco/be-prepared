@@ -23,8 +23,13 @@ function getStepContent(step) {
     case 1:
       return <InfoForm />;
     case 2:
+<<<<<<< HEAD
+    //   return <Review />;
+    break;
+=======
       //   return <Review />;
       break;
+>>>>>>> 96e426a509c5b6af70815525c062d448ed9784cf
     default:
       throw new Error('Unknown step');
   }
