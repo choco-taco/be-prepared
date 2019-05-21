@@ -1,8 +1,5 @@
-const User = require('../../models/User');
-const UserSession = require('../../models/User');
-// import UserSession from '../../models/usersession';
-
-
+const User = require('../../models/user');
+const UserSession = require('../../models/userSession');
 
 
 module.exports = (app) => {
@@ -10,9 +7,7 @@ module.exports = (app) => {
 	*Sign up
 	*/
 
-
-
-	app.post("/api/account/signup", (req, res, next) => {
+	app.post("/account/signup", (req, res, next) => {
 		const { body } = req;
 		const {
 			firstName,
@@ -97,7 +92,7 @@ module.exports = (app) => {
 
 	});
 
-	app.post("/api/account/signin", (req, res, next) => {
+	app.post("/account/signin", (req, res, next) => {
 		const { body } = req;
 		const {
 			password
@@ -167,7 +162,7 @@ module.exports = (app) => {
 		});
 	});
 
-	app.get('api/account/verify', (req, res, next) => {
+	app.get('/account/verify', (req, res, next) => {
 		//Get the Token
 		const { query } = req;
 		const { token } = query;
@@ -198,7 +193,7 @@ module.exports = (app) => {
 			}
 		});
 	});
-	
+
 	app.get('api/account/logout', (req, res, next) => {
 		//Get the Token
 		const { query } = req;
@@ -211,21 +206,21 @@ module.exports = (app) => {
 			_id: token,
 			isDeleted: false,
 		}, {
-			$set: {isDeleted: true}
+				$set: { isDeleted: true }
 
-		}, null, (err, sessions) => {
+			}, null, (err, sessions) => {
 
-			if (err) {
-				return res.send({
-					success: false,
-					message: 'Error: Server Error'
-				});
-			}
-			 
+				if (err) {
+					return res.send({
+						success: false,
+						message: 'Error: Server Error'
+					});
+				}
+
 				return res.send({
 					success: true,
 					message: 'Good'
 				});
-		});
+			});
 	});
 };
