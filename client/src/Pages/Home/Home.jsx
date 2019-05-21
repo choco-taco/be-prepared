@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,6 +17,15 @@ import List from '@material-ui/core/List';
 import { mainListItems, secondaryListItems } from './ListItems';
 import styles from './Home.styles';
 import Album from '../../components/Album';
+import bluegrey from '@material-ui/core/colors/blueGrey';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: bluegrey,
+    
+  },
+});
+
 
 
 class Home extends React.Component {
@@ -39,7 +48,7 @@ class Home extends React.Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-
+        <MuiThemeProvider theme={theme}> 
        {/*App Bar */}
         <AppBar
           color='primary'
@@ -75,7 +84,7 @@ class Home extends React.Component {
           </Toolbar>
         </AppBar>
         {/*App Bar End */}
-
+        </MuiThemeProvider>
         <Drawer
           variant="permanent"
           classes={{

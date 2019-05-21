@@ -4,6 +4,7 @@ export default theme => ({
   appBar: {
     position: 'relative',
   },
+  
   icon: {
     marginRight: theme.spacing.unit * 2,
   },
@@ -31,5 +32,7 @@ export default theme => ({
   left: {
     flex: .5,
   },
+  
+  
 
 });
