@@ -13,4 +13,5 @@ export default {
     deleteContact: function(id) {
         return axios.delete("/api/contacts/" + id);
       },
+      
 };
