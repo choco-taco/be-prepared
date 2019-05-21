@@ -13,83 +13,114 @@ function AddressForm() {
         Household Information
       </Typography>
       <Grid container spacing={24}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="firstName"
-            name="firstName"
-            label="First name"
-            fullWidth
-            autoComplete="fname"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="lastName"
-            name="lastName"
-            label="Last name"
-            fullWidth
-            autoComplete="lname"
-          />
-        </Grid>
         <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id="home#"
+            name="home#"
+            label="Home Phone #"
             fullWidth
-            autoComplete=" address-line1"
+            autoComplete=" home-#"
           />
-        </Grid>
+          </Grid>
         <Grid item xs={12}>
           <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
+            required
+            id="address"
+            name="address"
+            label="Address"
             fullWidth
-            autoComplete=" address-line2"
+            autoComplete=" address"
+          />
+        </Grid>
+         <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="name"
+            name="name"
+            label="Name"
+            fullWidth
+            autoComplete="name"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="city"
-            name="city"
-            label="City"
+            id="mobile#"
+            name="mobile#"
+            label="Mobile #"
             fullWidth
-            autoComplete="billing address-level2"
+            autoComplete="mobile-#"
           />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-        </Grid>
+        </Grid>      
         <Grid item xs={12} sm={6}>
           <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
+            id="alternate#"
+            name="alternate#"
+            label="Alternate #"
             fullWidth
-            autoComplete="billing postal-code"
+            autoComplete=" alt-#"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="country"
-            name="country"
-            label="Country"
+            id="email"
+            name="email"
+            label="Email"
             fullWidth
-            autoComplete="billing country"
+            autoComplete="email"
           />
         </Grid>
-        <Grid item xs={12}>
-          {/* <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
-          /> */}
+        <Grid item xs={12} >
+          <TextField id="info" name="info" label="Important medical or other information:" fullWidth />
+        </Grid>
+        
+        <br/>
+        <br/>
+        <br/>
+
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="name2"
+            name="name2"
+            label="Name"
+            fullWidth
+            autoComplete="name2"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="mobile#2"
+            name="mobile#2"
+            label="Mobile #"
+            fullWidth
+            autoComplete="mobile-#2"
+          />
+        </Grid> 
+        <Grid item xs={12} sm={6}>
+          <TextField
+            id="alternate#2"
+            name="alternate#2"
+            label="Alternate #"
+            fullWidth
+            autoComplete=" alt-#2"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="email2"
+            name="email2"
+            label="Email"
+            fullWidth
+            autoComplete="email2"
+          />
+        </Grid>
+        <Grid item xs={12} >
+          <TextField id="info" name="info" label="Important medical or other information:" fullWidth />
         </Grid>
       </Grid>
     </React.Fragment>
