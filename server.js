@@ -20,7 +20,14 @@ app.use(routes);
 app.use(express.json());
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/be-prepared-db");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/be-prepared-db", {useNewUrlParser: true});
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log("Mongoose Connected")
+});
 
 // Start the API server
 app.listen(PORT, function () {
