@@ -8,18 +8,18 @@ import DiscriptionIcon from '@material-ui/icons/Description';
 import PeopleIcon from '@material-ui/icons/People';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import CreatePlan from '../../components/CreatePlan';
+import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button >
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
     <ListItemText primary="Dashboard"/>
     </ListItem>
 
-    <ListItem button >
+    <ListItem button component={Link} to='CreatePlan'>
       <ListItemIcon >
         <DiscriptionIcon />
       </ListItemIcon>
