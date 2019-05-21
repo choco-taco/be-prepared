@@ -113,7 +113,7 @@ class Home extends React.Component {
           <Typography variant="h4" gutterBottom component="h2">
             Plans
 
-            <Album />
+            <Album color='secondary'/>
 
           </Typography>
 

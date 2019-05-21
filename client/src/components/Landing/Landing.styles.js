@@ -10,6 +10,7 @@ export default theme => ({
   },
   heroUnit: {
     backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#b0bec5',
   },
   heroContent: {
     maxWidth: 600,

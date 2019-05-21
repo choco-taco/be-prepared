@@ -36,7 +36,7 @@ function Landing(props) {
           <Link
             variant="h4"
             underline="none"
-            color="primary"
+            color="secondary"
             className={classes.title}
             href="/home"
           >
@@ -48,10 +48,10 @@ function Landing(props) {
         {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent} >
-            <Typography component="h1" variant="h2" align="center" color="primary" gutterBottom >
+            <Typography component="h1" variant="h2" align="center" color="secondary" gutterBottom >
              Welcome To Be Prepared
             </Typography>
-            <Typography variant="h6" align="center" color="secondary" paragraph>
+            <Typography variant="h6" align="center" color="textPrimary" paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
               Make it short and sweet, but not too short so folks dont simply skip over it
               entirely.
