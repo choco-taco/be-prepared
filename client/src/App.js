@@ -1,30 +1,17 @@
-import React, {Component} from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
-import './App.css';
-import { SignUp, Home, Landing, LogIn, CreatePlan } from "./Pages";
+import React from 'react';
+import Forms from "./pages/Forms";
 
-class App extends Component  {
-  state = {
-    user:null
-  };
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+          <h1>Fuck</h1>
 
-  render = () => (
-    <BrowserRouter>
-  
-  <Route exact path={`${process.env.PUBLIC_URL}/`} component={Landing} />
+          <Forms/>
 
-  <Route exact path={`${process.env.PUBLIC_URL}/home`} component={Home} />
-
-
-  <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp} />
- 
-  <Route exact path={`${process.env.PUBLIC_URL}/login`} component={LogIn} />
-
-  <Route exact path={`${process.env.PUBLIC_URL}/createplan`} component={CreatePlan} />
-
-
-
-    </BrowserRouter>
+      </header>
+    </div>
   );
 }
 
