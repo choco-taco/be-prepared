@@ -23,7 +23,8 @@ function getStepContent(step) {
     case 1:
       return <InfoForm />;
     case 2:
-    //   return <Review />;
+      //   return <Review />;
+      break;
     default:
       throw new Error('Unknown step');
   }
@@ -59,7 +60,7 @@ class CreatePlan extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        
+
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
@@ -84,25 +85,25 @@ class CreatePlan extends React.Component {
                   </Typography>
                 </React.Fragment>
               ) : (
-                <React.Fragment>
-                  {getStepContent(activeStep)}
-                  <div className={classes.buttons}>
-                    {activeStep !== 0 && (
-                      <Button onClick={this.handleBack} className={classes.button}>
-                        Back
+                  <React.Fragment>
+                    {getStepContent(activeStep)}
+                    <div className={classes.buttons}>
+                      {activeStep !== 0 && (
+                        <Button onClick={this.handleBack} className={classes.button}>
+                          Back
                       </Button>
-                    )}
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={this.handleNext}
-                      className={classes.button}
-                    >
-                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                    </Button>
-                  </div>
-                </React.Fragment>
-              )}
+                      )}
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleNext}
+                        className={classes.button}
+                      >
+                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                      </Button>
+                    </div>
+                  </React.Fragment>
+                )}
             </React.Fragment>
           </Paper>
         </main>
