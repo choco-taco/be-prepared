@@ -13,55 +13,95 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GestureIcon from '@material-ui/icons/Gesture';
+// import API from "../../utils/API";
 
+class LogIn extends React.Component {
 
+	state = {
+		user: [],
+		username: '',
+		email: '',
+		password: ''
+	}
 
-function LogIn(props) {
-  const { classes } = props;
+	handleChange = key => {
+		return event => {
+			this.setState({
+				[key]: event.target.value
+			})
+		}
+	};
 
-  return (
-    <main className={classes.main}>
-    
-      <CssBaseline />
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-        <GestureIcon color='primary' />
+	handleSubmit = (event) => {
+		event.preventDefault();
+		fetch('/api/verify', {
+			method: 'POST',
+			body: JSON.stringify(this.state),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(res => {
+				if (res.status === 200) {
+					this.props.history.push('/');
+				} else {
+					const error = new Error(res.error);
+					throw error;
+				}
+			})
+			.catch(err => {
+				console.error(err);
+				alert('Error logging in please try again');
+			});
+	}
 
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Log In
+	render() {
+		const { classes } = this.props;
+
+		return (
+			<main className={classes.main}>
+
+				<CssBaseline />
+				<Paper className={classes.paper}>
+					<Avatar className={classes.avatar}>
+						<GestureIcon color='primary' />
+
+					</Avatar>
+					<Typography component="h1" variant="h5">
+						Log In
         </Typography>
-        <form className={classes.form}>
-        <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="username">Username</InputLabel>
-            <Input id="username" name="username" autoComplete="username" autoFocus />
-          </FormControl>
-        
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Log In
+					<form className={classes.form}>
+						<FormControl margin="normal" required fullWidth>
+							<InputLabel htmlFor="username">Username</InputLabel>
+							<Input id="username" name="username" autoComplete="username" autoFocus />
+						</FormControl>
+
+						<FormControl margin="normal" required fullWidth>
+							<InputLabel htmlFor="password">Password</InputLabel>
+							<Input name="password" type="password" id="password" autoComplete="current-password" />
+						</FormControl>
+						<FormControlLabel
+							control={<Checkbox value="remember" color="primary" />}
+							label="Remember me"
+						/>
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							color="primary"
+							className={classes.submit}
+						>
+							Log In
           </Button>
-        </form>
-      </Paper>
-    </main>
-  );
+					</form>
+				</Paper>
+			</main>
+		);
+	}
 }
 
 LogIn.propTypes = {
-  classes: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(LogIn);

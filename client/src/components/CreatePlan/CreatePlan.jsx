@@ -14,7 +14,7 @@ import InfoForm from './InfoForm';
 import styles from './CreatePlan.styles'
 
 
-const steps = ['Household Information', 'Blank', 'Blank'];
+const steps = ['Household Information', 'Poop', 'Poop'];
 
 function getStepContent(step) {
   switch (step) {

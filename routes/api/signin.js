@@ -37,12 +37,15 @@ module.exports = (app) => {
 			})
 		}
 
-		console.log('here');
+		// if (username && email && password) {
+
+		// }
+
 
 		email = email.toLowerCase();
 
 		// Steps
-		//1. verify emai doesn't exist already
+		//1. verify email doesn't exist already
 		//2. save
 
 		User.find({
@@ -58,7 +61,7 @@ module.exports = (app) => {
 					success: false,
 					message: 'Error: Account already exits.'
 				})
-			}
+			} 
 
 			//Save the new User
 			const newUser = new User();

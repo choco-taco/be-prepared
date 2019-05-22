@@ -2,9 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const router = require("express").Router();
-const PORT = process.env.PORT || 8080;
-
+// const router = require("express").Router();
+const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -32,5 +31,5 @@ db.once('open', function() {
 
 // Start the API server
 app.listen(PORT, function () {
-	console.log(`👻  ==> API Server now listening on PORT ${PORT}!`);
+	console.log(`👻 ==> API Server now listening on PORT ${PORT}!`);
 });
