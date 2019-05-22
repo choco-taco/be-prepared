@@ -8,17 +8,11 @@ export default {
     saveContact: function (contactData) {
         return axios.post("/api/contacts", contactData);
     },
-    getContact: function (id) {
-        return axios.get("/api/contacts/" + id);
-    },
+    // getContact: function (id) {
+    //     return axios.get("/api/contacts/" + id);
+    // },
     deleteContact: function (id) {
         return axios.delete("/api/contacts/" + id);
-    },
-    userSignUp: function (UserData) {
-        return axios.post("api/account/signup", UserData);
-    },
-    userLogIn: function (UserData) {
-        return axios.post("/api/account/signin", UserData);
     },
 
     // **** EMERGENCY API ****
@@ -28,7 +22,17 @@ export default {
     saveEmergency: function (emergencyData) {
         return axios.post("/api/emergency", emergencyData);
     },
+    // getEmergency: function (id) {
+    //     return axios.get("/api/contacts/" + id);
+    // },
     deleteEmergency: function (id) {
         return axios.delete("/api/emergency/" + id);
+    },
+
+    userSignUp: function (UserData) {
+        return axios.post("api/account/signup", UserData);
+    },
+    userLogIn: function (UserData) {
+        return axios.post("/api/account/signin", UserData);
     }
 };
