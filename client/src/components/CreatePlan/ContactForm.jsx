@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import Button from '@material-ui/core/Button';
+import API from "../../utils/API";
 
 //******** MATERIAL UI ******** 
 import Grid from '@material-ui/core/Grid';
@@ -7,17 +7,14 @@ import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
 
 //******** COMPONENTS AND STUFF ******** 
-import API from "../../utils/API";
 import { Container } from "../Grid";
 import { FormBtn } from "../Form";
-// import DeleteBtn from "../DeleteBtn";
 
 //******** CODE STARTS ******** 
-class Forms extends Component {
+
+class ContactForm extends Component {
   state = {
     contacts: [],
     name: "",
@@ -55,6 +52,7 @@ class Forms extends Component {
 
 
   handleSubmit = event => {
+    event.preventDefault();
     API.saveContact({
       name: this.state.name,
       mobile: this.state.mobile,
@@ -63,7 +61,6 @@ class Forms extends Component {
       this.setState({
         contacts: [data, ...this.state.contacts]
       })
-      event.preventDefault();
       this.setState({name: '', mobile: '', address: ''})
     })
   }
@@ -102,4 +99,4 @@ class Forms extends Component {
   }
 }
 
-export default Forms;
+export default ContactForm;
