@@ -19,6 +19,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main:'#31051f',
+    
     },
     secondary: {
       main: '#5d2e46',
@@ -64,7 +65,7 @@ function Landing(props) {
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
                 <Grid item>
-                  <Button href="/signup" variant="contained" color="inherit">
+                  <Button href="/signup" variant="contained" >
                    Sign Up
                   </Button>
                 </Grid>

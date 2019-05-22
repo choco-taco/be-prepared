@@ -16,9 +16,6 @@ import styles from './Album.styles';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
-
-
-
 function Album(props) {
   const { classes } = props;
 

@@ -34,9 +34,4 @@ export default theme => ({
   left: {
     flex: .5,
   },
-  typography:{
-    color: 'white',
-  }
-  
-
 });
