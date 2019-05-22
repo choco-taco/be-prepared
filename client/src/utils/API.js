@@ -13,5 +13,11 @@ export default {
     deleteContact: function(id) {
         return axios.delete("/api/contacts/" + id);
       },
-      
+
+    userSignUp: function(UserData) {
+        return axios.post("/api/account/signup", UserData);
+      },
+      userLogIn: function(UserData) {
+        return axios.post("/api/account/signin", UserData);
+      },
 };

@@ -1,4 +1,5 @@
 module.exports = {
-    Contact: require("./contact")
+    Contact: require("./contact"),
+    SignUp: require('./user')
   };
   

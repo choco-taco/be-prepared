@@ -13,30 +13,64 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GestureIcon from '@material-ui/icons/Gesture';
+import API from "../../utils/API";
 
+class LogIn extends React.Component {
 
+  state = {
+    user: [],
+    username: '',
+    email: '',
+    password: ''
+  }
 
-function LogIn(props) {
-  const { classes } = props;
+  componentDidMount() {
+    this.handleSubmit()
+  }
+
+  handleChange = key => {
+    return event => {
+      this.setState({
+        [key]: event.target.value
+      })
+    }
+  };
+
+  handleSubmit = event => {
+    API.userSignUp({
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    }).then(({ data }) => {
+      this.setState({
+        user: [data, ...this.state.user]
+      })
+      // event.preventDefault();
+      this.setState({ username: '', email: '', password: '' })
+    })
+  }
+
+  render() {
+  const { classes } = this.props;
 
   return (
     <main className={classes.main}>
-    
+
       <CssBaseline />
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
-        <GestureIcon color='primary' />
+          <GestureIcon color='primary' />
 
         </Avatar>
         <Typography component="h1" variant="h5">
           Log In
         </Typography>
         <form className={classes.form}>
-        <FormControl margin="normal" required fullWidth>
+          <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="username">Username</InputLabel>
             <Input id="username" name="username" autoComplete="username" autoFocus />
           </FormControl>
-        
+
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="password">Password</InputLabel>
             <Input name="password" type="password" id="password" autoComplete="current-password" />
@@ -58,6 +92,7 @@ function LogIn(props) {
       </Paper>
     </main>
   );
+}
 }
 
 LogIn.propTypes = {
