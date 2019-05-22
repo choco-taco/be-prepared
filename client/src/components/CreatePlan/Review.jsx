@@ -1,92 +1,80 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import API from "../../utils/API";
+// import PropTypes from 'prop-types';
+
+//******** MATERIAL UI ******** 
+// import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Grid from '@material-ui/core/Grid';
+// import List from '@material-ui/core/List';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
+// import Grid from '@material-ui/core/Grid';
 
-const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
-];
+//******** CODE STARTS ******** 
+class Review extends Component {
+  state = {
+    emergency: [],
+    type: "",
+    plan: "",
+    notes: "",
+    contacts: [],
+    name: "",
+    mobile: "",
+    address: ""
+  };
 
-const styles = theme => ({
-  listItem: {
-    padding: `${theme.spacing.unit}px 0`,
-  },
-  total: {
-    fontWeight: '700',
-  },
-  title: {
-    marginTop: theme.spacing.unit * 2,
-  },
-});
+  componentDidMount() {
+    this.loadEmergency();
+    this.loadContacts();
+  }
 
-function Review(props) {
-  const { classes } = props;
-  return (
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Order summary
-      </Typography>
-      <List disablePadding>
-        {products.map(product => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem className={classes.listItem}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" className={classes.total}>
-            
-          </Typography>
-        </ListItem>
-      </List>
-      <Grid container spacing={16}>
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Shipping
-          </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {payments.map(payment => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
-            ))}
-          </Grid>
-        </Grid>
-      </Grid>
-    </React.Fragment>
-  );
+  loadEmergency = () => {
+    API.getEmergency()
+      .then(res =>
+        this.setState({ emergency: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+  loadContacts = () => {
+    API.getContacts()
+      .then(res =>
+        this.setState({ contacts: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <div>
+        <Typography component="h1" variant="h4" align="center">
+              Review Emergency
+            </Typography>
+          {this.state.emergency.map(emergency => {
+            return (
+              <p key={emergency._id}>Type: {emergency.type}<br/>
+              Plan: {emergency.plan}<br/>
+              Notes: {emergency.notes}
+              <br/>
+              </p>
+            )})}
+        </div>
+        <div>
+        <Typography component="h1" variant="h4" align="center">
+              Review Contacts
+            </Typography>
+          {this.state.contacts.map(contacts => {
+            return (
+              <p key={contacts._id}>Name: {contacts.name}<br/>
+              Mobile: {contacts.mobile}<br/>
+              Address: {contacts.address}
+              <br/>
+              </p>
+            )})}
+        </div>
+    </React.Fragment >
+    );
+  }
 }
 
-Review.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Review);
+export default Review;

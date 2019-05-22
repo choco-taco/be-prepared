@@ -14,6 +14,9 @@ import bluegrey from '@material-ui/core/colors/blueGrey';
 
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: bluegrey,
     secondary: {

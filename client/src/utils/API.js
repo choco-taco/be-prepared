@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+    // **** CONTACT API ****
     getContacts: function () {
         return axios.get("/api/contacts");
     },
@@ -19,4 +20,15 @@ export default {
     userLogIn: function (UserData) {
         return axios.post("/api/account/signin", UserData);
     },
+
+    // **** EMERGENCY API ****
+    getEmergency: function () {
+        return axios.get("/api/emergency");
+    },
+    saveEmergency: function (emergencyData) {
+        return axios.post("/api/emergency", emergencyData);
+    },
+    deleteEmergency: function (id) {
+        return axios.delete("/api/emergency/" + id);
+    }
 };
