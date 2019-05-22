@@ -11,8 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import ContactForm from './ContactForm';
 import EmergencyForm from './EmergencyForm';
 import Review from './Review';
-import styles from './CreatePlan.styles'
-
+import styles from './CreatePlan.styles';
 
 const steps = ['Household', 'Emergency', 'Blank'];
 
@@ -59,7 +58,6 @@ class CreatePlan extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
