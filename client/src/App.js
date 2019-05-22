@@ -15,7 +15,6 @@ class App extends Component  {
 
   <Route exact path={`${process.env.PUBLIC_URL}/home`} component={Home} />
 
-
   <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp} />
  
   <Route exact path={`${process.env.PUBLIC_URL}/login`} component={LogIn} />

@@ -1,130 +1,105 @@
+import React, {Component} from 'react';
+// import Button from '@material-ui/core/Button';
 
-import React from 'react';
+//******** MATERIAL UI ******** 
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Typography from '@material-ui/core/Typography';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
 
-function AddressForm() {
-  return (
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Household Information
-      </Typography>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="home#"
-            name="home#"
-            label="Home Phone #"
-            fullWidth
-            autoComplete=" home-#"
-          />
-          </Grid>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="address"
-            name="address"
-            label="Address"
-            fullWidth
-            autoComplete=" address"
-          />
-        </Grid>
-         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="name"
-            name="name"
-            label="Name"
-            fullWidth
-            autoComplete="name"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="mobile#"
-            name="mobile#"
-            label="Mobile #"
-            fullWidth
-            autoComplete="mobile-#"
-          />
-        </Grid>      
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="alternate#"
-            name="alternate#"
-            label="Alternate #"
-            fullWidth
-            autoComplete=" alt-#"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="email"
-            name="email"
-            label="Email"
-            fullWidth
-            autoComplete="email"
-          />
-        </Grid>
-        <Grid item xs={12} >
-          <TextField id="info" name="info" label="Important medical or other information:" fullWidth />
-        </Grid>
-        
-        <br/>
-        <br/>
-        <br/>
+//******** COMPONENTS AND STUFF ******** 
+import API from "../../utils/API";
+import { Container } from "../Grid";
+import { FormBtn } from "../Form";
+// import DeleteBtn from "../DeleteBtn";
 
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="name2"
-            name="name2"
-            label="Name"
-            fullWidth
-            autoComplete="name2"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="mobile#2"
-            name="mobile#2"
-            label="Mobile #"
-            fullWidth
-            autoComplete="mobile-#2"
-          />
-        </Grid> 
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="alternate#2"
-            name="alternate#2"
-            label="Alternate #"
-            fullWidth
-            autoComplete=" alt-#2"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="email2"
-            name="email2"
-            label="Email"
-            fullWidth
-            autoComplete="email2"
-          />
-        </Grid>
-        <Grid item xs={12} >
-          <TextField id="info" name="info" label="Important medical or other information:" fullWidth />
-        </Grid>
-      </Grid>
-    </React.Fragment>
-  );
+//******** CODE STARTS ******** 
+class Forms extends Component {
+  state = {
+    contacts: [],
+    name: "",
+    mobile: "",
+    address: ""
+  };
+
+  componentDidMount() {
+    this.loadContacts();
+  }
+
+  loadContacts = () => {
+    API.getContacts()
+      .then(res =>
+        this.setState({ contacts: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+
+  handleChange = key => {
+    return event => {
+      this.setState({
+        [key]: event.target.value
+      })
+    }
+  };
+
+  handleDelete = id => () => {
+    API.deleteContact(id).then(() => {
+      this.setState({
+        contacts: this.state.contacts.filter((item) => item._id !== id)
+      });
+    });
+  }
+
+
+  handleSubmit = event => {
+    API.saveContact({
+      name: this.state.name,
+      mobile: this.state.mobile,
+      address: this.state.address
+    }).then(({data}) => {
+      this.setState({
+        contacts: [data, ...this.state.contacts]
+      })
+      event.preventDefault();
+      this.setState({name: '', mobile: '', address: ''})
+    })
+  }
+
+  render() {
+    return (
+      <Container>
+        <form onSubmit={this.handleSubmit}>
+        <Grid item xs={12}>
+          <TextField fullWidth name="name" placeholder="Name" onChange={this.handleChange('name')} value={this.state.name}/>
+          </Grid>
+          <Grid item xs={12}>
+          <TextField fullWidth name="mobile" placeholder="Mobile" onChange={this.handleChange('mobile')} value={this.state.mobile}/>
+          </Grid>
+          <Grid item xs={12}>
+          <TextField fullWidth name="address" placeholder="Address" onChange={this.handleChange('address')} value={this.state.address}/>
+          </Grid>
+          <FormBtn aria-label="Delete" variant="contained" color="primary">Submit</FormBtn>
+        </form>
+        <div>
+        <Typography component="h1" variant="h4" align="center">
+              Contacts
+            </Typography>
+          {this.state.contacts.map(contact => {
+            return (
+              <p key={contact._id}>Name: {contact.name}<br/>
+              Mobile: {contact.mobile}<br/>
+              Address: {contact.address}
+              <br/>
+              <IconButton onClick={this.handleDelete(contact._id)} variant="contained" color="primary"><DeleteIcon fontSize="small" /></IconButton>
+              </p>
+            )})}
+        </div>
+      </Container>
+    )
+  }
 }
 
-export default AddressForm;
+export default Forms;

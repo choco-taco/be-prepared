@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const contactRoutes = require("./contacts");
-
-router.use("/contacts", contactRoutes);
+const controller = require('./signin')
+controller(router)
 
 module.exports = router;
