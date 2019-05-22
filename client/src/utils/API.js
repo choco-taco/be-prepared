@@ -10,14 +10,14 @@ export default {
     getContact: function (id) {
         return axios.get("/api/contacts/" + id);
     },
-    deleteContact: function(id) {
+    deleteContact: function (id) {
         return axios.delete("/api/contacts/" + id);
-      },
+    },
 
-    userSignUp: function(UserData) {
+    userSignUp: function (UserData) {
         return axios.post("/api/account/signup", UserData);
-      },
-      userLogIn: function(UserData) {
+    },
+    userLogIn: function (UserData) {
         return axios.post("/api/account/signin", UserData);
-      },
+    },
 };
