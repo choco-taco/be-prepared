@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+//******** MATERIAL UI ******** 
 import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
@@ -8,11 +10,15 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+//******** COMPONENTS AND STUFF ******** 
 import ContactForm from './ContactForm';
 import EmergencyForm from './EmergencyForm';
 import Review from './Review';
 import styles from './CreatePlan.styles';
 
+
+//******** CODE STARTS ******** 
 const steps = ['Household', 'Emergency', 'Blank'];
 
 function getStepContent(step) {
@@ -74,11 +80,10 @@ class CreatePlan extends React.Component {
               {activeStep === steps.length ? (
                 <React.Fragment>
                   <Typography variant="h5" gutterBottom>
-                    Thank you for your order.
+                    Thank you.
                   </Typography>
                   <Typography variant="subtitle1">
-                    Your order number is #2001539. We have emailed your order confirmation, and will
-                    send you an update when your order has shipped.
+                    Your Plan Has been created.
                   </Typography>
                 </React.Fragment>
               ) : (

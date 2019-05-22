@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from "./Signup.styles.js";
 import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
@@ -12,7 +11,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-import GestureIcon from '@material-ui/icons/Gesture';
 
 
 
@@ -25,9 +23,6 @@ function SignUp(props) {
       <CssBaseline />
       <Paper className={classes.paper}>
 
-        <Avatar className={classes.avatar}>
-        <GestureIcon color='primary' />
-        </Avatar>
 
          <Typography component="h1" variant="h5">
             Sign Up
@@ -49,7 +44,7 @@ function SignUp(props) {
           </FormControl>
 
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value="remember" color="#607d8b" />}
             label="Remember me"
           />
           

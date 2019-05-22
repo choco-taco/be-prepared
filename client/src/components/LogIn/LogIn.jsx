@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from "./LogIn.styles.js";
 import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
@@ -12,8 +11,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-import GestureIcon from '@material-ui/icons/Gesture';
-
+import Link from '@material-ui/core/Link';
 
 
 function LogIn(props) {
@@ -24,13 +22,16 @@ function LogIn(props) {
     
       <CssBaseline />
       <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-        <GestureIcon color='primary' />
-
-        </Avatar>
-        <Typography component="h1" variant="h5">
+       
+        <Typography component="h1" gutterBottom variant="h5">
           Log In
         </Typography>
+        <Typography variant="body2" align="center">
+              {'Not a member yet? '}
+              <Link href="signup" align="center" underline="always">
+                Sign Up here
+              </Link>
+            </Typography>
         <form className={classes.form}>
         <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="username">Username</InputLabel>
@@ -42,7 +43,7 @@ function LogIn(props) {
             <Input name="password" type="password" id="password" autoComplete="current-password" />
           </FormControl>
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value="remember" color="#607d8b" />}
             label="Remember me"
           />
           <Button
