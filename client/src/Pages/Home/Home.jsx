@@ -19,7 +19,7 @@ import bluegrey from '@material-ui/core/colors/blueGrey';
 
 
 const theme = createMuiTheme({
-  typography: {
+  typography: { 
     useNextVariants: true,
   },
   palette: {
