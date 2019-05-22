@@ -88,7 +88,7 @@ class SignUp extends React.Component {
               label="Remember me"
             />
 
-            <Button href="/Home"
+            <Button href="/LogIn"
               type="submit"
               fullWidth
               variant="contained"
