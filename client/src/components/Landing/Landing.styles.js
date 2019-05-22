@@ -9,7 +9,9 @@ export default theme => ({
     marginRight: theme.spacing.unit * 2,
   },
   heroUnit: {
-    backgroundColor: theme.palette.background.paper,
+    background: theme.palette.background.paper, 
+    backgroundColor: '#5d2e46',
+
   },
   heroContent: {
     maxWidth: 600,
@@ -32,7 +34,9 @@ export default theme => ({
   left: {
     flex: .5,
   },
-  
+  typography:{
+    color: 'white',
+  }
   
 
 });
