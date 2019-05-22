@@ -23,12 +23,7 @@ function getStepContent(step) {
     case 1:
       return <EmergencyForm />;
     case 2:
-<<<<<<< HEAD
-    //   return <Review />;
-    break;
-=======
         return <Review />;
->>>>>>> origin/master
     default:
       throw new Error('Unknown step');
   }

@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import styles from './Landing.styles';
-import bluegrey from '@material-ui/core/colors/blueGrey';
 
 
 const theme = createMuiTheme({
@@ -18,9 +17,11 @@ const theme = createMuiTheme({
     useNextVariants: true,
   },
   palette: {
-    primary: bluegrey,
+    primary: {
+      main:'#31051f',
+    },
     secondary: {
-      main: '#1e88e5',
+      main: '#5d2e46',
     },
     
   },
@@ -33,13 +34,13 @@ function Landing(props) {
     <React.Fragment>
       <CssBaseline />
       <MuiThemeProvider theme={theme}>
-      <AppBar  color='inherit' position="static" className={classes.appBar}>
+      <AppBar  color='primary' position="static" className={classes.appBar}>
         <Toolbar>
         <div className={classes.left} />
           <Link
             variant="h4"
             underline="none"
-            color="secondary"
+            color="inherit"
             className={classes.title}
             href="/home"
           >
@@ -51,10 +52,10 @@ function Landing(props) {
         {/* Hero unit */}
         <div className={classes.heroUnit} >
           <div className={classes.heroContent} >
-            <Typography component="h1" variant="h2" align="center" color="secondary" gutterBottom >
+            <Typography component="h1" variant="h2" align="center"  gutterBottom >
              Welcome To Be Prepared
             </Typography>
-            <Typography variant="h6" align="center" color="textPrimary" paragraph>
+            <Typography variant="h6" align="center"  paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
               Make it short and sweet, but not too short so folks dont simply skip over it
               entirely.
@@ -63,7 +64,7 @@ function Landing(props) {
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
                 <Grid item>
-                  <Button href="/signup" variant="outlined" color="secondary">
+                  <Button href="/signup" variant="contained" color="inherit">
                    Sign Up
                   </Button>
                 </Grid>

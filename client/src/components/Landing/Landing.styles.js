@@ -10,7 +10,7 @@ export default theme => ({
   },
   heroUnit: {
     background: theme.palette.background.paper, 
-    backgroundColor: '#b0bec5',
+    backgroundColor: '#5d2e46',
 
   },
   heroContent: {
@@ -34,7 +34,9 @@ export default theme => ({
   left: {
     flex: .5,
   },
-  
+  typography:{
+    color: 'white',
+  }
   
 
 });
