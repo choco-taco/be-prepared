@@ -43,7 +43,7 @@ function LogIn(props) {
             <Input name="password" type="password" id="password" autoComplete="current-password" />
           </FormControl>
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value="remember" color="#607d8b" />}
             label="Remember me"
           />
           <Button

@@ -9,9 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import List from '@material-ui/core/List';
 import { mainListItems, secondaryListItems } from './ListItems';
@@ -19,13 +17,15 @@ import styles from './Home.styles';
 import Album from '../../components/Album';
 import bluegrey from '@material-ui/core/colors/blueGrey';
 
+
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
-    primary: bluegrey,
-    
+    primary: bluegrey,  
   },
 });
-
 
 
 class Home extends React.Component {
@@ -55,7 +55,7 @@ class Home extends React.Component {
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
         >
-          <Toolbar disableGutters=          {!this.state.open} className=         {classes.toolbar}>
+          <Toolbar disableGutters={!this.state.open} className=         {classes.toolbar}>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
@@ -73,18 +73,15 @@ class Home extends React.Component {
               color="inherit"
               noWrap
               className={classes.title}
+              align='center'
             >
               Home
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={100} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
           </Toolbar>
         </AppBar>
         {/*App Bar End */}
         </MuiThemeProvider>
+        
         <Drawer
           variant="permanent"
           classes={{
@@ -111,9 +108,9 @@ class Home extends React.Component {
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Typography variant="h4" gutterBottom component="h2">
-            Plans
+            
 
-            <Album color='secondary'/>
+            <Album />
 
           </Typography>
 

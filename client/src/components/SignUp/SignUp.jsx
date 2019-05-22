@@ -11,7 +11,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-import GestureIcon from '@material-ui/icons/Gesture';
 
 
 
@@ -45,7 +44,7 @@ function SignUp(props) {
           </FormControl>
 
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value="remember" color="#607d8b" />}
             label="Remember me"
           />
           

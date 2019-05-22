@@ -14,6 +14,9 @@ import bluegrey from '@material-ui/core/colors/blueGrey';
 
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: bluegrey,
     secondary: {
@@ -46,7 +49,7 @@ function Landing(props) {
       </AppBar>
       <main>
         {/* Hero unit */}
-        <div className={classes.heroUnit}>
+        <div className={classes.heroUnit} >
           <div className={classes.heroContent} >
             <Typography component="h1" variant="h2" align="center" color="secondary" gutterBottom >
              Welcome To Be Prepared
@@ -60,7 +63,7 @@ function Landing(props) {
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
                 <Grid item>
-                  <Button href="/signup" variant="contained" color="primary">
+                  <Button href="/signup" variant="outlined" color="secondary">
                    Sign Up
                   </Button>
                 </Grid>

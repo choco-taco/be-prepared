@@ -2,8 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const router = require("express").Router();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 
 // Define middleware here

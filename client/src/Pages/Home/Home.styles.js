@@ -42,6 +42,7 @@ export default theme => ({
     drawerPaper: {
       position: 'relative',
       whiteSpace: 'nowrap',
+      backgroundColor: '#e1f5fe',
       width: drawerWidth,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -75,4 +76,8 @@ export default theme => ({
     h5: {
       marginBottom: theme.spacing.unit * 2,
     },
+    ListItem: {
+      backgroundColor: '#b0bec5',
+
+    }
   });

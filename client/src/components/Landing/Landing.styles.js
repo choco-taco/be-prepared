@@ -9,8 +9,9 @@ export default theme => ({
     marginRight: theme.spacing.unit * 2,
   },
   heroUnit: {
-    backgroundColor: theme.palette.background.paper,
+    background: theme.palette.background.paper, 
     backgroundColor: '#b0bec5',
+
   },
   heroContent: {
     maxWidth: 600,
