@@ -1,5 +1,5 @@
-const User = require('../../models/User');
-const UserSession = require('../../models/User');
+const User = require('../../models/user');
+const UserSession = require('../../models/userSession');
 
 
 module.exports = (app) => {
@@ -7,11 +7,10 @@ module.exports = (app) => {
 	*Sign up
 	*/
 
-	app.post("/api/account/signup", (req, res, next) => {
+	app.post("/account/signup", (req, res, next) => {
 		const { body } = req;
 		const {
-			firstName,
-			lastName,
+			username,
 			password
 		} = body;
 
@@ -19,16 +18,10 @@ module.exports = (app) => {
 			email
 		} = body;
 
-		if (!firstName) {
+		if (!username) {
 			return res.send({
 				success: false,
-				message: 'Error: First name cannot be blank'
-			})
-		}
-		if (!lastName) {
-			return res.send({
-				success: false,
-				message: 'Error: Last name cannot be blank'
+				message: 'Error: Username cannot be blank'
 			})
 		}
 		if (!email) {
@@ -44,14 +37,13 @@ module.exports = (app) => {
 			})
 		}
 
-		console.log('here');
+		
 
 		email = email.toLowerCase();
 
 		// Steps
 		//1. verify emai doesn't exist already
 		//2. save
-
 
 		User.find({
 			email: email
@@ -72,8 +64,7 @@ module.exports = (app) => {
 			const newUser = new User();
 
 			newUser.email = email;
-			newUser.firstName = firstName;
-			newUser.lastName = lastName;
+			newUser.username = username;
 			newUser.password = newUser.generateHash(password)
 			newUser.save((err, user) => {
 				if (err) {
@@ -86,13 +77,11 @@ module.exports = (app) => {
 					success: true,
 					message: 'Signed Up'
 				})
-
 			})
 		});
-
 	});
 
-	app.post("/api/account/signin", (req, res, next) => {
+	app.post("/account/signin", (req, res, next) => {
 		const { body } = req;
 		const {
 			password
@@ -162,7 +151,7 @@ module.exports = (app) => {
 		});
 	});
 
-	app.get('api/account/verify', (req, res, next) => {
+	app.get('/account/verify', (req, res, next) => {
 		//Get the Token
 		const { query } = req;
 		const { token } = query;
@@ -193,8 +182,8 @@ module.exports = (app) => {
 			}
 		});
 	});
-	
-	app.get('api/account/logout', (req, res, next) => {
+
+	app.get('/account/logout', (req, res, next) => {
 		//Get the Token
 		const { query } = req;
 		const { token } = query;
@@ -206,21 +195,21 @@ module.exports = (app) => {
 			_id: token,
 			isDeleted: false,
 		}, {
-			$set: {isDeleted: true}
+				$set: { isDeleted: true }
 
-		}, null, (err, sessions) => {
+			}, null, (err, sessions) => {
 
-			if (err) {
-				return res.send({
-					success: false,
-					message: 'Error: Server Error'
-				});
-			}
-			 
+				if (err) {
+					return res.send({
+						success: false,
+						message: 'Error: Server Error'
+					});
+				}
+
 				return res.send({
 					success: true,
 					message: 'Good'
 				});
-		});
+			});
 	});
 };
