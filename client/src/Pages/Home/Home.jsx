@@ -20,12 +20,13 @@ import Album from '../../components/Album';
 import bluegrey from '@material-ui/core/colors/blueGrey';
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: bluegrey,
-    
   },
 });
-
 
 
 class Home extends React.Component {
