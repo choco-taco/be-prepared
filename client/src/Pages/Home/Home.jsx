@@ -19,11 +19,19 @@ import bluegrey from '@material-ui/core/colors/blueGrey';
 
 
 const theme = createMuiTheme({
+<<<<<<< HEAD
   typography: { 
     useNextVariants: true,
   },
   palette: {
     primary: bluegrey,  
+=======
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: bluegrey,
+>>>>>>> origin/master
   },
 });
 

@@ -8,23 +8,27 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from './AddressForm';
-import InfoForm from './InfoForm';
-// import Review from './Review';
+import ContactForm from './ContactForm';
+import EmergencyForm from './EmergencyForm';
+import Review from './Review';
 import styles from './CreatePlan.styles'
 
 
-const steps = ['Household Information', 'Blank', 'Blank'];
+const steps = ['Household', 'Emergency', 'Blank'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <ContactForm />;
     case 1:
-      return <InfoForm />;
+      return <EmergencyForm />;
     case 2:
+<<<<<<< HEAD
     //   return <Review />;
     break;
+=======
+        return <Review />;
+>>>>>>> origin/master
     default:
       throw new Error('Unknown step');
   }
