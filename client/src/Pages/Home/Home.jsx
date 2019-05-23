@@ -6,6 +6,8 @@ import classNames from 'classnames';
 // **** COMPONENTS ****
 import Navigation from '../../components/Navigation';
 import Album from '../../components/Album';
+import BottomBar from '../../components/BottomBar';
+// import FloatingButtons from '../../components/FloatingButtons';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
@@ -69,6 +71,7 @@ class Home extends React.Component {
         <CssBaseline />
         <MuiThemeProvider theme={theme}> 
         <Navigation/>
+        {/* <FloatingButtons/> */}
         <main>
         {/* <div className={classes.heroUnit} >
           <div className={classes.heroContent} >
@@ -100,6 +103,7 @@ class Home extends React.Component {
         <div className={classNames(classes.layout, classes.cardGrid)}>
         </div>
         <Album/>
+        <BottomBar/>
       </main>
         
         </MuiThemeProvider>

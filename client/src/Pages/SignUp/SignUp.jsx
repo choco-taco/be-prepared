@@ -7,6 +7,9 @@ import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core
 import styles from "./Signup.styles.js";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+// ***** COMPONENTS *****
+import Navigation from '../../components/Navigation';
+
 // **** MATERIAL UI ****
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -48,11 +51,12 @@ function SignUp(props) {
   const { classes } = props;
 
   return (
-    <main className={classes.main}>
-    
+    <div>
       <CssBaseline />
       <MuiThemeProvider theme={theme}>
-      
+      <Navigation/>
+    <main className={classes.main}>
+    
       <Paper className={classes.paper}>
 
 
@@ -95,9 +99,9 @@ function SignUp(props) {
 
         </form>
       </Paper>
-
-      </MuiThemeProvider>
     </main>
+    </MuiThemeProvider>
+    </div>
   );
 }
 

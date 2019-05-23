@@ -3,9 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // **** STYLES ****
-import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import styles from "./LogIn.styles.js";
+
+// ***** COMPONENTS *****
+import Navigation from '../../components/Navigation';
 
 // **** MATERIAL UI ****
 import Button from '@material-ui/core/Button';
@@ -48,50 +51,55 @@ function LogIn(props) {
   const { classes } = props;
 
   return (
-    <main className={classes.main}>
-    
-    <CssBaseline />
+    <div>
+      <CssBaseline />
       <MuiThemeProvider theme={theme}>
+      <Navigation/>
+        <main className={classes.main}>
 
-      <Paper className={classes.paper}>
-       
-        <Typography component="h1" gutterBottom variant="h5">
-          Log In
+
+          
+          <Paper className={classes.paper}>
+
+            <Typography component="h1" gutterBottom variant="h5">
+              Log In
         </Typography>
-        <Typography variant="body2" align="center">
+            <Typography variant="body2" align="center">
               {'Not a member yet? '}
               <Link href="signup" align="center" underline="always">
                 Sign Up here
               </Link>
             </Typography>
-        <form className={classes.form}>
-        <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="username">Username</InputLabel>
-            <Input id="username" name="username" autoComplete="username" autoFocus />
-          </FormControl>
-        
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="#607d8b" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Log In
-          </Button>
-        </form>
-      </Paper>
+            <form className={classes.form}>
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="username">Username</InputLabel>
+                <Input id="username" name="username" autoComplete="username" autoFocus />
+              </FormControl>
 
-      </MuiThemeProvider>
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="password">Password</InputLabel>
+                <Input name="password" type="password" id="password" autoComplete="current-password" />
+              </FormControl>
+              <FormControlLabel
+                control={<Checkbox value="remember" color="#607d8b" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Log In
+          </Button>
+            </form>
+          </Paper>
+
+      
     </main>
+    </MuiThemeProvider>
+    </div>
   );
 }
 
