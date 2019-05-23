@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const emergencySchema = new Schema({
   type: { type: String, required: true },
   plan: { type: String, required: true },
