@@ -1,5 +1,11 @@
+// ******* REACT *******
 import React, {Component} from 'react';
 import API from "../../utils/API";
+
+// ******* CSS AND STYLING *******
+import {withStyles,MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import styles from './EmergencyForm.styles';
 
 //******** MATERIAL UI ******** 
 import Grid from '@material-ui/core/Grid';
@@ -13,6 +19,25 @@ import { Container } from "../Grid";
 import { FormBtn } from "../Form";
 
 //******** CODE STARTS ******** 
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ]
+  },
+  palette: {
+    primary: {
+      main:'#5D2E46',
+    },
+    secondary: {
+      main: '#1e88e5',
+    },
+  },
+});
+
+
 class EmergencyForm extends Component {
   state = {
     emergency: [],
@@ -49,7 +74,6 @@ class EmergencyForm extends Component {
     });
   }
 
-
   handleSubmit = event => {
     event.preventDefault();
     API.saveEmergency({
@@ -68,6 +92,8 @@ class EmergencyForm extends Component {
   render() {
     return (
       <Container>
+        <CssBaseline />
+        <MuiThemeProvider theme={theme}> 
         <form onSubmit={this.handleSubmit}>
         <Grid item xs={12}>
           <TextField fullWidth name="type" placeholder="Type" onChange={this.handleChange('type')} value={this.state.type}/>
@@ -86,55 +112,18 @@ class EmergencyForm extends Component {
             </Typography>
           {this.state.emergency.map(emergency => {
             return (
-              <p key={emergency._id}>Type: {emergency.type}<br/>
+              <Typography key={emergency._id}>Type: {emergency.type}<br/>
               Plan: {emergency.plan}<br/>
               Notes: {emergency.notes}
               <br/>
               <IconButton onClick={this.handleDelete(emergency._id)} variant="contained" color="primary"><DeleteIcon fontSize="small" /></IconButton>
-              </p>
+              </Typography>
             )})}
         </div>
+        </MuiThemeProvider>
       </Container>
     )
   }
 }
 
-export default EmergencyForm;
-
-// function InfoForm() {
-//   return (
-//     <React.Fragment>
-//       <Typography variant="h6" gutterBottom>
-//       Blank
-//       </Typography>
-//       <Grid container spacing={24}>
-//         <Grid item xs={12} md={6}>
-//           <TextField required id="cardName" label="blank" fullWidth />
-//         </Grid>
-//         <Grid item xs={12} md={6}>
-//           <TextField required id="cardNumber" label="blank" fullWidth />
-//         </Grid>
-//         <Grid item xs={12} md={6}>
-//           <TextField required id="expDate" label="blank" fullWidth />
-//         </Grid>
-//         <Grid item xs={12} md={6}>
-//           {/* <TextField
-//             required
-//             id="cvv"
-//             label="CVV"
-//             helperText="Last three digits on signature strip"
-//             fullWidth
-//           /> */}
-//         </Grid>
-//         <Grid item xs={12}>
-//           {/* <FormControlLabel
-//             control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-//             label="Remember credit card details for next time"
-//           /> */}
-//         </Grid>
-//       </Grid>
-//     </React.Fragment>
-//   );
-// }
-
-// export default InfoForm;
+export default withStyles(styles)(EmergencyForm);

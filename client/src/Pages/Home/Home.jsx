@@ -1,30 +1,53 @@
+// **** REACT ****
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+// **** COMPONENTS ****
+import Navigation from '../../components/Navigation';
+import Album from '../../components/Album';
+import BottomBar from '../../components/BottomBar';
+// import FloatingButtons from '../../components/FloatingButtons';
+
+// **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import styles from './Home.styles';
-import Album from '../../components/Album';
+
+// **** MATERIAL UI ****
+// import Button from '@material-ui/core/Button';
+// import Grid from '@material-ui/core/Grid';
+// import Typography from '@material-ui/core/Typography';
+// import Divider from '@material-ui/core/Divider';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
 
 
+// **** CODE STARTS HERE ****
+
+// *** Theme-Related Code ***
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ],
   },
   palette: {
     primary: {
-      main:'#5D2E46',
+      light: '#bc477b',
+      main: '#880e4f',
+      dark: '#560027',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#1e88e5',
+      light: '#efdcd5',
+      main: '#bcaaa4',
+      dark: '#8c7b75',
+      contrastText: '#000000',
     },
-    
   },
 });
-
 
 class Home extends React.Component {
     
@@ -47,43 +70,44 @@ class Home extends React.Component {
       <div className={classes.root}>
         <CssBaseline />
         <MuiThemeProvider theme={theme}> 
-       {/*App Bar */}
-        <AppBar
-        color='primary'
-          position="absolute"
-          align='center'
-        >
-          <Toolbar disableGutters={!this.state.open} className=         {classes.toolbar}>
-           
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              className={classes.title}
-            >
-              Home
+        <Navigation/>
+        {/* <FloatingButtons/> */}
+        <main>
+        {/* <div className={classes.heroUnit} >
+          <div className={classes.heroContent} >
+            <Typography component="h1" variant="h2" align="center"  gutterBottom >
+             Be Prepared
             </Typography>
-          </Toolbar>
-        </AppBar>
-        {/*App Bar End */}
-        </MuiThemeProvider>
-               
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Typography variant="h4" gutterBottom component="h2">
+            <Typography variant="h6" align="center" paragraph>
+              Something short and leading about the collection below—its contents, the creator, etc.
+              Make it short and sweet, but not too short so folks dont simply skip over it
+              entirely.
+            </Typography>
             
-
-            <Album />
-
-          </Typography>
-
-          <Typography component="div" className={classes.chartContainer}>
-          <Divider />
-          </Typography>
-         
-         
-        </main>
+            <div className={classes.heroButtons}>
+              <Grid container spacing={16} justify="center">
+                <Grid item>
+                  <Button href="/signup" variant="contained" >
+                   Sign Up
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button href="/login" variant="contained" color="primary">
+                    Log In
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </div>
+        </div> */}
+        <div className={classNames(classes.layout, classes.cardGrid)}>
+        </div>
+        <Album/>
+        <BottomBar/>
+      </main>
+        
+        </MuiThemeProvider>
+        
       </div>
     );
   }
@@ -94,4 +118,7 @@ Home.propTypes = {
 };
 
 export default withStyles(styles)(Home);
+
+
+
 
