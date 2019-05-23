@@ -1,8 +1,14 @@
+// **** REACT ****
 import React from 'react';
-import styles from "./LogIn.styles.js";
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+
+// **** STYLES ****
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import styles from "./LogIn.styles.js";
+
+// **** MATERIAL UI ****
+import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -10,9 +16,33 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Link from '@material-ui/core/Link';
 
+// **** CODE STARTS HERE ****
+
+// *** Theme-Related Code ***
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ],
+  },
+  palette: {
+    primary: {
+      light: '#bc477b',
+      main: '#880e4f',
+      dark: '#560027',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      light: '#efdcd5',
+      main: '#bcaaa4',
+      dark: '#8c7b75',
+      contrastText: '#000000',
+    },
+  },
+});
 
 function LogIn(props) {
   const { classes } = props;
@@ -20,7 +50,9 @@ function LogIn(props) {
   return (
     <main className={classes.main}>
     
-      <CssBaseline />
+    <CssBaseline />
+      <MuiThemeProvider theme={theme}>
+
       <Paper className={classes.paper}>
        
         <Typography component="h1" gutterBottom variant="h5">
@@ -57,6 +89,8 @@ function LogIn(props) {
           </Button>
         </form>
       </Paper>
+
+      </MuiThemeProvider>
     </main>
   );
 }

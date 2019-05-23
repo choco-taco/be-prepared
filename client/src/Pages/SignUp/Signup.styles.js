@@ -24,6 +24,6 @@ export default theme => ({
     },
     submit: {
       marginTop: theme.spacing.unit * 3,
-      backgroundColor: '#607d8b',
+      // backgroundColor: '#607d8b',
     },
   });

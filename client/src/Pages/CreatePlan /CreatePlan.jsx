@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//******** MATERIAL UI ******** 
-import withStyles from '@material-ui/core/styles/withStyles';
+//******** CSS AND STYLING  ******** 
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import styles from './CreatePlan.styles';
+
+//******** MATERIAL UI ******** 
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -11,15 +14,41 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
 //******** COMPONENTS AND STUFF ******** 
-import ContactForm from './ContactForm';
-import EmergencyForm from './EmergencyForm';
+import ContactForm from '../../components/ContactForm';
+import EmergencyForm from '../../components/EmergencyForm';
 import Review from './Review';
-import styles from './CreatePlan.styles';
+import Navigation from '../../components/Navigation';
+
 
 
 //******** CODE STARTS ******** 
 const steps = ['Household', 'Emergency', 'Blank'];
+
+// *** Theme-Related Code ***
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ],
+  },
+  palette: {
+    primary: {
+      light: '#bc477b',
+      main: '#880e4f',
+      dark: '#560027',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      light: '#efdcd5',
+      main: '#bcaaa4',
+      dark: '#8c7b75',
+      contrastText: '#000000',
+    },
+  },
+});
 
 function getStepContent(step) {
   switch (step) {
@@ -64,6 +93,9 @@ class CreatePlan extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
+        <MuiThemeProvider theme={theme}> 
+
+        <Navigation/>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
@@ -109,6 +141,7 @@ class CreatePlan extends React.Component {
             </React.Fragment>
           </Paper>
         </main>
+        </MuiThemeProvider>
       </React.Fragment>
     );
   }
