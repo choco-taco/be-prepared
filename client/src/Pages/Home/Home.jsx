@@ -83,7 +83,7 @@ class Home extends React.Component {
   }
 }
 
-me.propTypes = {
+Home.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 

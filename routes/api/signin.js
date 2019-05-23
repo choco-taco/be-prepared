@@ -10,8 +10,7 @@ module.exports = (app) => {
 	app.post("/account/signup", (req, res, next) => {
 		const { body } = req;
 		const {
-			firstName,
-			lastName,
+			username,
 			password
 		} = body;
 
@@ -19,16 +18,11 @@ module.exports = (app) => {
 			email
 		} = body;
 
-		if (!firstName) {
+
+		if (!username) {
 			return res.send({
 				success: false,
-				message: 'Error: First name cannot be blank'
-			})
-		}
-		if (!lastName) {
-			return res.send({
-				success: false,
-				message: 'Error: Last name cannot be blank'
+				message: 'Error: username cannot be blank'
 			})
 		}
 		if (!email) {
@@ -44,7 +38,6 @@ module.exports = (app) => {
 			})
 		}
 
-		console.log('here');
 
 		email = email.toLowerCase();
 
@@ -72,8 +65,7 @@ module.exports = (app) => {
 			const newUser = new User();
 
 			newUser.email = email;
-			newUser.firstName = firstName;
-			newUser.lastName = lastName;
+			newUser.username = username;
 			newUser.password = newUser.generateHash(password)
 			newUser.save((err, user) => {
 				if (err) {
