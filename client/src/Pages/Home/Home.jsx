@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import React from './node_modules/react';
+import PropTypes from './node_modules/prop-types';
+import { withStyles, MuiThemeProvider,  createMuiTheme } from './node_modules/@material-ui/core/styles';
+import CssBaseline from './node_modules/@material-ui/core/CssBaseline';
+import AppBar from './node_modules/@material-ui/core/AppBar';
+import Toolbar from './node_modules/@material-ui/core/Toolbar';
+import Typography from './node_modules/@material-ui/core/Typography';
+import Divider from './node_modules/@material-ui/core/Divider';
 import styles from './Home.styles';
 import Album from '../../components/Album';
 
