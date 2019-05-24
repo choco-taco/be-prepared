@@ -77,7 +77,7 @@ function SinglePlan(props) {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button href="/share" variant="contained" color="primary">
+                  <Button href="/shareplan" variant="contained" color="primary">
                     Share
                   </Button>
                 </Grid>

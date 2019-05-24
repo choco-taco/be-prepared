@@ -110,10 +110,10 @@ class Album extends Component {
                     </Typography>
 										</CardContent>
 										<CardActions>
-											<Button size="small" color="primary">
+											<Button size="small" color="primary" href="/singleplan">
 												View
                     </Button>
-											<Button size="small" color="primary">
+											<Button size="small" color="primary" href="/createplan">
 												Edit
                     </Button>
 										</CardActions>
