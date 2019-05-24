@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 //******** CSS AND STYLING  ******** 
-import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import styles from './CreatePlan.styles';
 
@@ -24,47 +24,39 @@ import Navigation from '../../components/Navigation';
 //******** CODE STARTS ******** 
 const steps = ['Household', 'Emergency', 'Blank'];
 
-// *** Theme-Related Code ***
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true,
-    fontFamily: [
-      'Asap Condensed',
-    ],
-  },
-  palette: {
-    primary: {
-      light: '#bc477b',
-      main: '#880e4f',
-      dark: '#560027',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      light: '#efdcd5',
-      main: '#bcaaa4',
-      dark: '#8c7b75',
-      contrastText: '#000000',
-    },
-  },
-});
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <ContactForm />;
-    case 1:
-      return <EmergencyForm />;
-    case 2:
-        return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
 class CreatePlan extends React.Component {
   state = {
     activeStep: 0,
+    emergency: [],
+    contacts: [],
   };
+
+
+  getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <ContactForm saveContacts={this.saveContacts} />;
+      case 1:
+        return <EmergencyForm contacts={this.state.contacts} saveEmergencies={this.saveEmergencies} />;
+      case 2:
+          return <Review />;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
+  saveContacts = (newContacts) => {
+    this.setState({
+      contacts: newContacts
+    })
+  }
+
+  saveEmergencies  = (newEmergencies) => {
+    this.setState({
+      emergency: newEmergencies
+    })
+  }
+
+
 
   handleNext = () => {
     this.setState(state => ({
@@ -91,7 +83,6 @@ class CreatePlan extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <MuiThemeProvider theme={theme}> 
 
         <Navigation/>
         <main className={classes.layout}>
@@ -119,7 +110,7 @@ class CreatePlan extends React.Component {
                 </React.Fragment>
               ) : (
                   <React.Fragment>
-                    {getStepContent(activeStep)}
+                    {this.getStepContent(activeStep)}
                     <div className={classes.buttons}>
                       {activeStep !== 0 && (
                         <Button onClick={this.handleBack} className={classes.button}>
@@ -140,7 +131,6 @@ class CreatePlan extends React.Component {
             </React.Fragment>
           </Paper>
         </main>
-        </MuiThemeProvider>
       </React.Fragment>
     );
   }

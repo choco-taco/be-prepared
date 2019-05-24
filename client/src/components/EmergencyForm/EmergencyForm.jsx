@@ -76,16 +76,22 @@ class EmergencyForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const contactIds = this.props.contacts.map(contact => contact._id);
     API.saveEmergency({
       type: this.state.type,
       plan: this.state.plan,
-      notes: this.state.notes
+      notes: this.state.notes,
+      contacts: contactIds
     }).then(({data}) => {
+      const newEmergency = [data,
+        ...this.state.emergency]
       this.setState({
-        emergency: [data, ...this.state.emergency]
-      })
-      
-      this.setState({type: '', plan: '', notes: ''})
+        emergency: newEmergency,
+        type: '', 
+        plan: '', 
+        notes: ''
+      });
+      this.props.saveEmergencies(newEmergency)
     })
   }
 
