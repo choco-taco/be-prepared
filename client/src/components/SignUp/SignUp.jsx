@@ -10,8 +10,24 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
 
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      main:'#31051f',
+    
+    },
+    secondary: {
+      main: '#5d2e46',
+    },
+    
+  },
+});
 
 
 function SignUp(props) {
@@ -21,6 +37,8 @@ function SignUp(props) {
     <main className={classes.main}>
     
       <CssBaseline />
+      <MuiThemeProvider theme={theme}> 
+
       <Paper className={classes.paper}>
 
 
@@ -44,7 +62,7 @@ function SignUp(props) {
           </FormControl>
 
           <FormControlLabel
-            control={<Checkbox value="remember" color="#607d8b" />}
+            control={<Checkbox value="remember" color="inherit" />}
             label="Remember me"
           />
           
@@ -57,12 +75,15 @@ function SignUp(props) {
           >
             Sign Up
           </Button>
-         <br/>
-         <br/>
-         Have An Account <a href="/LogIn" class="active">LogIn</a> Here
-
+          <Typography variant="body2" align="center">
+              {'Have An Account Already '}
+              <Link gutterBottom href="login" align="center" underline="always">
+                Log In here
+              </Link>
+            </Typography>
         </form>
       </Paper>
+      </MuiThemeProvider>
     </main>
   );
 }

@@ -16,23 +16,39 @@ import styles from './CreatePlan.styles'
 
 const steps = ['Household', 'Emergency', 'Blank'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <ContactForm />;
-    case 1:
-      return <EmergencyForm />;
-    case 2:
-        return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
 class CreatePlan extends React.Component {
   state = {
     activeStep: 0,
+    emergency: [],
+    contacts: [],
   };
+
+
+  getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <ContactForm saveContacts={this.saveContacts} />;
+      case 1:
+        return <EmergencyForm contacts={this.state.contacts} saveEmergencies={this.saveEmergencies} />;
+      case 2:
+          return <Review />;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
+  saveContacts = (newContacts) => {
+    this.setState({
+      contacts: newContacts
+    })
+  }
+
+  saveEmergencies  = (newEmergencies) => {
+    this.setState({
+      emergency: newEmergencies
+    })
+  }
+
+
 
   handleNext = () => {
     this.setState(state => ({
@@ -84,7 +100,7 @@ class CreatePlan extends React.Component {
                 </React.Fragment>
               ) : (
                   <React.Fragment>
-                    {getStepContent(activeStep)}
+                    {this.getStepContent(activeStep)}
                     <div className={classes.buttons}>
                       {activeStep !== 0 && (
                         <Button onClick={this.handleBack} className={classes.button}>

@@ -10,8 +10,24 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      main:'#31051f',
+    
+    },
+    secondary: {
+      main: '#5d2e46',
+    },
+    
+  },
+});
 
 
 function LogIn(props) {
@@ -21,17 +37,21 @@ function LogIn(props) {
     <main className={classes.main}>
     
       <CssBaseline />
-      <Paper className={classes.paper}>
+      <MuiThemeProvider theme={theme}> 
+
+      <Paper color='secondary' className={classes.paper}>
        
         <Typography component="h1" gutterBottom variant="h5">
           Log In
         </Typography>
+
         <Typography variant="body2" align="center">
               {'Not a member yet? '}
               <Link href="signup" align="center" underline="always">
                 Sign Up here
               </Link>
             </Typography>
+
         <form className={classes.form}>
         <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="username">Username</InputLabel>
@@ -43,9 +63,10 @@ function LogIn(props) {
             <Input name="password" type="password" id="password" autoComplete="current-password" />
           </FormControl>
           <FormControlLabel
-            control={<Checkbox value="remember" color="#607d8b" />}
+            control={<Checkbox value="remember" color="inherit" />}
             label="Remember me"
           />
+
           <Button
             type="submit"
             fullWidth
@@ -57,6 +78,7 @@ function LogIn(props) {
           </Button>
         </form>
       </Paper>
+      </MuiThemeProvider>
     </main>
   );
 }

@@ -10,7 +10,12 @@ module.exports = {
     create: function (req, res) {
         db.Contact
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(dbModel => { 
+                console.log(req.body); 
+                // dbModel.id is the id of the contact just inserted we need to attach this to the emergency plan that we are working on in order to know which plan we need to send req.body this means on the front end we cant be working on a plan that hasnt been created yet 
+                // console.dir(dbModel.id);
+                res.json(dbModel);
+            })
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
