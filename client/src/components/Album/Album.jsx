@@ -20,7 +20,6 @@ import styles from './Album.styles';
 
 // const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
-<<<<<<< HEAD
 // **** CODE STARTS HERE ****
 const styles = theme => ({
 	appBar: {
@@ -76,8 +75,6 @@ const cards = [
 		"test": "Fire",
 	}
 ];
-=======
->>>>>>> 032ea904566297c31720f41fdb432a180b38c984
 
 class Album extends Component {
  
