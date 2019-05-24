@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import './App.css';
-import { SignUp, Home, Landing, LogIn, CreatePlan } from "./pages";
+import { SignUp, Home, Landing, LogIn, CreatePlan } from "./Pages";
 
 class App extends Component {
   state = {

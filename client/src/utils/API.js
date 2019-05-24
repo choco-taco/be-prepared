@@ -28,11 +28,10 @@ export default {
     deleteEmergency: function (id) {
         return axios.delete("/api/emergency/" + id);
     },
-
-    // userSignUp: function (UserData) {
-    //     return axios.post("api/account/signup", UserData);
-    // },
-    // userLogIn: function (UserData) {
-    //     return axios.post("/api/account/signin", UserData);
-    // }
+    userSignUp: function (UserData) {
+        return axios.post("api/account/signup", UserData);
+    },
+    userLogIn: function (UserData) {
+        return axios.post("/api/account/signin", UserData);
+    }
 };

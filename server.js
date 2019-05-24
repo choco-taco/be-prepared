@@ -7,10 +7,10 @@ const session = require('express-session');
 const app = express();
 
 //setting server port 
-const PORT = process.env.PORT || 7070;
+const PORT = process.env.PORT || 3001;
 
 // Passport Config
-require('./config/passport')(passport);
+// require('./config/passport')(passport);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -29,21 +29,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 app.use(express.json());
 
-// Routes
-app.use('/', require('./routes/index.js'));
-app.use('/users', require('./routes/users.js'));
 
-// Express session
-app.use(
-  session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-  })
-);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/move-to-repo", {useNewUrlParser: true, autoIndex: false, useFindAndModify: false});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/be-prepared-db", {useNewUrlParser: true, autoIndex: false, useFindAndModify: false});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -53,16 +42,8 @@ db.once('open', function() {
 });
 
 
-// Connect flash
-app.use(flash());
 
-// Global variables
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-});
+
 
 // Start the API server
 app.listen(PORT, function () {
