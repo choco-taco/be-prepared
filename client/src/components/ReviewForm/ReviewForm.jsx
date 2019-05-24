@@ -84,9 +84,9 @@ class Review extends Component {
             </Typography>
             {this.state.emergency.map(emergency => {
               return (
-                <Typography key={emergency._id}>Type: {emergency.type}<br />
-                  Plan: {emergency.plan}<br />
-                  Notes: {emergency.notes}
+                <Typography key={emergency._id}><i class="fas fa-fire-extinguisher"></i>Type: {emergency.type}<br />
+                  <i class="fas fa-map"></i> Plan: {emergency.plan}<br />
+                  <i class="fas fa-sticky-note"></i> Notes: {emergency.notes}
                   <br />
                   <Divider/>
                   <br/>
@@ -101,9 +101,9 @@ class Review extends Component {
             </Typography>
             {this.state.contacts.map(contacts => {
               return (
-                <Typography key={contacts._id}>Name: {contacts.name}<br />
-                  Mobile: {contacts.mobile}<br />
-                  Address: {contacts.address}
+                <Typography key={contacts._id}><i class="fas fa-child"></i> Name: {contacts.name}<br />
+                  <i class="fas fa-mobile-alt"></i> Mobile: {contacts.mobile}<br />
+                  <i class="fas fa-home"></i> Address: {contacts.address}
                   <br />
                   <Divider/>
                   <br/>
