@@ -13,10 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './Album.styles';
 import axios from 'axios';
 
-
-
 // const cards = [1, 2, 3, 4, 5, 6, 7, 8];
-
 
 
 class Album extends Component {
