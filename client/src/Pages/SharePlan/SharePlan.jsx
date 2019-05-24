@@ -7,12 +7,12 @@ import classNames from 'classnames';
 import Navigation from '../../components/Navigation';
 // import ContactForm from '../../components/ContactForm';
 // import EmergencyForm from '../../components/EmergencyForm';
-import Review from '../../components/ReviewForm';
+// import Review from '../../components/ReviewForm';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './SinglePlan.styles';
+import styles from './SharePlan.styles';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -48,7 +48,7 @@ const theme = createMuiTheme({
 });
 
 // *** Landing Page Code ***
-function SinglePlan(props) {
+function SharePlan(props) {
   const { classes } = props;
 
   return (
@@ -66,7 +66,7 @@ function SinglePlan(props) {
               </Typography>
 
               <Typography variant="h6" align="center"  paragraph>
-                 This is the emergency plan for Grandma's house.
+                 Share this QR Code with your fam!
               </Typography>
             
             <div className={classes.heroButtons}>
@@ -77,7 +77,7 @@ function SinglePlan(props) {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button href="/share" variant="contained" color="primary">
+                  <Button href="/login" variant="contained" color="primary">
                     Share
                   </Button>
                 </Grid>
@@ -93,7 +93,7 @@ function SinglePlan(props) {
 
         <main className={classes.layout}>
         <Paper className={classes.paper}>
-        <Review/>
+        <img src="../../images/qr-code-tiny.png" alt="fuuuuck"/>
         </Paper>
         </main>
 
@@ -104,8 +104,8 @@ function SinglePlan(props) {
   );
 }
 
-SinglePlan.propTypes = {
+SharePlan.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SinglePlan);
+export default withStyles(styles)(SharePlan);

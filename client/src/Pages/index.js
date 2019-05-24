@@ -5,6 +5,7 @@ import LogIn from './LogIn';
 import Album from '../components/Album';
 import CreatePlan from './CreatePlan ';
 import SinglePlan from './SinglePlan';
+import SharePlan from './SharePlan';
 
 export {
     Home,
@@ -13,7 +14,8 @@ export {
     LogIn,
     Album,
     CreatePlan,
-    SinglePlan
+    SinglePlan,
+    SharePlan
 };
 
 export default {
@@ -23,5 +25,6 @@ export default {
     LogIn,
     Album,
     CreatePlan,
-    SinglePlan
+    SinglePlan,
+    SharePlan
 };
