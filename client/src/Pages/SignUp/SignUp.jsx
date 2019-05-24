@@ -19,6 +19,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 
 //API calls
 import API from "../../utils/API";
@@ -26,7 +27,6 @@ import API from "../../utils/API";
 
 // **** CODE STARTS HERE ****
 
-// *** Theme-Related Code ***
 
 const theme = createMuiTheme({
   typography: {

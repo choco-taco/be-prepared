@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+var Schema = mongoose.Schema;
+
+
 const UserSchema = new mongoose.Schema({
 	username: {
 		type: String,
@@ -19,6 +22,12 @@ const UserSchema = new mongoose.Schema({
 		type: Boolean,
 		default:false
 	},
+	emergency: [
+		{
+		  type: Schema.Types.ObjectId,
+		  ref: "Emergency"
+		}
+	  ]
 });
 
 UserSchema.methods.generateHash = function (password) {

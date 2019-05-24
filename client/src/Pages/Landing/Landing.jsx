@@ -49,38 +49,33 @@ function Landing(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <MuiThemeProvider theme={theme}>
-
-      {/* ********* TOP BAR ********* */}
-
-      <AppBar  color='primary' position="static" className={classes.appBar}>
-        <Toolbar>
-        <div className={classes.left} />
-          <Link
-            variant="h4"
-            underline="none"
-            color="inherit"
-            className={classes.title}
-            href="/home"
-          >
-            {'Be Prepared'}
-          </Link>
-        </Toolbar>
-      </AppBar>
-
-      {/* ********* HERO UNIT ********* */}
+       <MuiThemeProvider theme={theme}>
+         <AppBar  color='primary' position="static" className={classes.appBar}>
+          <Toolbar>
+            <div className={classes.left} />
+            <Link
+              variant="h4"
+             underline="none"
+              color="inherit"
+             className={classes.title}
+              href="/home"
+              >
+              {'Be Prepared'}
+            </Link>
+          </Toolbar>
+        </AppBar>
       
-      <main>
-        <div className={classes.heroUnit} >
-          <div className={classes.heroContent} >
-            <Typography component="h1" variant="h2" align="center"  gutterBottom >
-             Be Prepared
-            </Typography>
-            <Typography variant="h6" align="center" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks dont simply skip over it
-              entirely.
-            </Typography>
+         <main>
+           {/* Hero unit */}
+            <div className={classes.heroUnit} >
+             <div className={classes.heroContent} >
+              <Typography component="h1" variant="h2" align="center" color="textPrimary"  gutterBottom >
+                 Welcome To Be Prepared
+              </Typography>
+
+              <Typography variant="h6" align="center"  paragraph>
+                 Make a plan today. Your family may not be together if a disaster strikes, so it is important to know which types of disasters could affect your area.  Know how you’ll contact one another and reconnect if separated. Establish a family meeting place that’s familiar and easy to find.
+              </Typography>
             
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
@@ -96,14 +91,16 @@ function Landing(props) {
                 </Grid>
               </Grid>
             </div>
-          </div>
+           </div>
+           </div>
+           <div className={classNames(classes.layout, classes.cardGrid)}>
+          {/* End hero unit */}
+         
         </div>
-        <div className={classNames(classes.layout, classes.cardGrid)}>
-        </div>
-      </main>
+        </main>
+     </MuiThemeProvider>
 
-      </MuiThemeProvider>
-    </React.Fragment>
+  </React.Fragment>
   );
 }
 

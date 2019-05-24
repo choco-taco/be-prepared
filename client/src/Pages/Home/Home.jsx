@@ -18,9 +18,6 @@ import styles from './Home.styles';
 // import Button from '@material-ui/core/Button';
 // import Grid from '@material-ui/core/Grid';
 // import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
 
 
 // **** CODE STARTS HERE ****
@@ -71,41 +68,10 @@ class Home extends React.Component {
         <CssBaseline />
         <MuiThemeProvider theme={theme}> 
         <Navigation/>
-        {/* <FloatingButtons/> */}
-        <main>
-        {/* <div className={classes.heroUnit} >
-          <div className={classes.heroContent} >
-            <Typography component="h1" variant="h2" align="center"  gutterBottom >
-             Be Prepared
-            </Typography>
-            <Typography variant="h6" align="center" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks dont simply skip over it
-              entirely.
-            </Typography>
-            
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                <Grid item>
-                  <Button href="/signup" variant="contained" >
-                   Sign Up
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button href="/login" variant="contained" color="primary">
-                    Log In
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-          </div>
-        </div> */}
         <div className={classNames(classes.layout, classes.cardGrid)}>
         </div>
-        <Album/>
+        <Album />
         <BottomBar/>
-      </main>
-        
         </MuiThemeProvider>
         
       </div>
