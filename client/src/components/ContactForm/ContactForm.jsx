@@ -1,5 +1,11 @@
+// ******* REACT *******
 import React, {Component} from 'react';
 import API from "../../utils/API";
+
+// ******* CSS AND STYLING *******
+import {withStyles,MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import styles from './ContactForm.styles';
 
 //******** MATERIAL UI ******** 
 import Grid from '@material-ui/core/Grid';
@@ -13,6 +19,24 @@ import { Container } from "../Grid";
 import { FormBtn } from "../Form";
 
 //******** CODE STARTS ******** 
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ]
+  },
+  palette: {
+    primary: {
+      main:'#5D2E46',
+    },
+    secondary: {
+      main: '#1e88e5',
+    },
+  },
+});
+
 
 class ContactForm extends Component {
   state = {
@@ -72,6 +96,9 @@ class ContactForm extends Component {
   render() {
     return (
       <Container>
+        <CssBaseline />
+        <MuiThemeProvider theme={theme}> 
+
         <form onSubmit={this.handleSubmit}>
         <Grid item xs={12}>
           <TextField fullWidth name="name" placeholder="Name" onChange={this.handleChange('name')} value={this.state.name}/>
@@ -90,17 +117,19 @@ class ContactForm extends Component {
             </Typography>
           {this.state.contacts.map(contact => {
             return (
-              <p key={contact._id}>Name: {contact.name}<br/>
+              <Typography key={contact._id}>Name: {contact.name}<br/>
               Mobile: {contact.mobile}<br/>
               Address: {contact.address}
               <br/>
               <IconButton onClick={this.handleDelete(contact._id)} variant="contained" color="primary"><DeleteIcon fontSize="small" /></IconButton>
-              </p>
+              </Typography>
             )})}
         </div>
+
+        </MuiThemeProvider>
       </Container>
     )
   }
 }
 
-export default ContactForm;
+export default withStyles(styles)(ContactForm);

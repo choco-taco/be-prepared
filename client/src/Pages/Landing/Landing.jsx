@@ -1,33 +1,48 @@
+// **** REACT ****
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+// **** STYLES ****
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import styles from './Landing.styles';
+
+// **** MATERIAL UI ****
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
-import styles from './Landing.styles';
 
+// **** CODE STARTS HERE ****
 
+// *** Theme-Related Code ***
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ],
   },
   palette: {
     primary: {
-      main:'#31051f',
-    
+      light: '#bc477b',
+      main: '#880e4f',
+      dark: '#560027',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#5d2e46',
+      light: '#efdcd5',
+      main: '#bcaaa4',
+      dark: '#8c7b75',
+      contrastText: '#000000',
     },
-    
   },
 });
 
+// *** Landing Page Code ***
 function Landing(props) {
   const { classes } = props;
 
