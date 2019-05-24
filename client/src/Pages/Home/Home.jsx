@@ -70,7 +70,7 @@ class Home extends React.Component {
         <Navigation/>
         <div className={classNames(classes.layout, classes.cardGrid)}>
         </div>
-        <Album/>
+        <Album />
         <BottomBar/>
         </MuiThemeProvider>
         

@@ -82,10 +82,14 @@ class ContactForm extends Component {
       mobile: this.state.mobile,
       address: this.state.address
     }).then(({data}) => {
+      const newContacts = [data, ...this.state.contacts];
       this.setState({
-        contacts: [data, ...this.state.contacts]
-      })
-      this.setState({name: '', mobile: '', address: ''})
+        contacts: newContacts,
+        name: '',
+        mobile: '',
+        address: ''
+      });
+      this.props.saveContacts(newContacts)
     })
   }
 
