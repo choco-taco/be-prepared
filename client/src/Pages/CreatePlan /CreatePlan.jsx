@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 //******** CSS AND STYLING  ******** 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import styles from './CreatePlan.styles';
 
@@ -21,7 +21,33 @@ import EmergencyForm from '../../components/EmergencyForm';
 import Review from '../../components/ReviewForm';
 import Navigation from '../../components/Navigation';
 
+
 //******** CODE STARTS ******** 
+
+// Theme Related Code
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      'Asap Condensed',
+    ],
+  },
+  palette: {
+    primary: {
+      light: '#bc477b',
+      main: '#880e4f',
+      dark: '#560027',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      light: '#efdcd5',
+      main: '#bcaaa4',
+      dark: '#8c7b75',
+      contrastText: '#000000',
+    },
+  },
+});
+
 const steps = ['Household', 'Emergency', 'Blank'];
 
 class CreatePlan extends React.Component {
@@ -83,12 +109,12 @@ class CreatePlan extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-
+        <MuiThemeProvider theme={theme}> 
         <Navigation/>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
-              CreatePlan
+              Edit Plan Information
             </Typography>
             <Stepper activeStep={activeStep} className={classes.stepper}>
               {steps.map(label => (
@@ -106,7 +132,7 @@ class CreatePlan extends React.Component {
                   <Typography variant="subtitle1">
                     Your Plan Has been created.
                   </Typography>
-                  <a href="/home"><Button color="secondary" variant="contained">Home</Button></a>
+                  <a href="/singleplan"><Button color="secondary" variant="contained">View Plan</Button></a>
                 </React.Fragment>
               ) : (
                   <React.Fragment>
@@ -131,6 +157,7 @@ class CreatePlan extends React.Component {
             </React.Fragment>
           </Paper>
         </main>
+        </MuiThemeProvider>
       </React.Fragment>
     );
   }
