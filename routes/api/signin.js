@@ -37,11 +37,6 @@ module.exports = (app) => {
 			})
 		}
 
-		// if (username && email && password) {
-
-		// }
-
-
 		email = email.toLowerCase();
 
 		// Steps
