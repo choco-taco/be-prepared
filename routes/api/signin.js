@@ -10,8 +10,7 @@ module.exports = (app) => {
 	app.post("/account/signup", (req, res, next) => {
 		const { body } = req;
 		const {
-			firstName,
-			lastName,
+			username,
 			password
 		} = body;
 
@@ -19,16 +18,10 @@ module.exports = (app) => {
 			email
 		} = body;
 
-		if (!firstName) {
+		if (!username) {
 			return res.send({
 				success: false,
-				message: 'Error: First name cannot be blank'
-			})
-		}
-		if (!lastName) {
-			return res.send({
-				success: false,
-				message: 'Error: Last name cannot be blank'
+				message: 'Error: Username cannot be blank'
 			})
 		}
 		if (!email) {
@@ -44,14 +37,11 @@ module.exports = (app) => {
 			})
 		}
 
-		console.log('here');
-
 		email = email.toLowerCase();
 
 		// Steps
-		//1. verify emai doesn't exist already
+		//1. verify email doesn't exist already
 		//2. save
-
 
 		User.find({
 			email: email
@@ -66,14 +56,13 @@ module.exports = (app) => {
 					success: false,
 					message: 'Error: Account already exits.'
 				})
-			}
+			} 
 
 			//Save the new User
 			const newUser = new User();
 
 			newUser.email = email;
-			newUser.firstName = firstName;
-			newUser.lastName = lastName;
+			newUser.username = username;
 			newUser.password = newUser.generateHash(password)
 			newUser.save((err, user) => {
 				if (err) {
@@ -86,10 +75,8 @@ module.exports = (app) => {
 					success: true,
 					message: 'Signed Up'
 				})
-
 			})
 		});
-
 	});
 
 	app.post("/account/signin", (req, res, next) => {
@@ -194,7 +181,7 @@ module.exports = (app) => {
 		});
 	});
 
-	app.get('api/account/logout', (req, res, next) => {
+	app.get('/account/logout', (req, res, next) => {
 		//Get the Token
 		const { query } = req;
 		const { token } = query;

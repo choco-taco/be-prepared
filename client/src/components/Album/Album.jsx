@@ -69,14 +69,6 @@ const cards = [
 	{
 		"key": 1,
 		"test": "Fire",
-	},
-	{
-		"key": 2,
-		"test": "Earthquake",
-	},
-	{
-		"key": 3,
-		"test": "Tornado",
 	}
 ];
 
