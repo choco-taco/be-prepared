@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // **** STYLES ****
-import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import styles from "./Signup.styles.js";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -19,8 +19,13 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 
+//API calls
+import API from "../../utils/API";
+
+
+// **** CODE STARTS HERE ****
 
 
 const theme = createMuiTheme({
@@ -46,68 +51,97 @@ const theme = createMuiTheme({
   },
 });
 
-function SignUp(props) {
-  const { classes } = props;
 
-  return (
-    <div>
-      <CssBaseline />
-      <MuiThemeProvider theme={theme}>
-      <Navigation/>
-    <main className={classes.main}>
-    
-      <CssBaseline />
-      <MuiThemeProvider theme={theme}> 
+class SignUp extends React.Component {
 
-      <Paper className={classes.paper}>
+  state = {
+    user: [],
+    username: '',
+    email: '',
+    password: ''
+  }
+
+  componentDidMount() {
+    this.handleSubmit()
+  }
+
+  handleChange = key => {
+    return event => {
+      this.setState({
+        [key]: event.target.value
+      })
+    }
+  };
+
+  handleSubmit = event => {
+    API.userSignUp({
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    }).then(({ data }) => {
+      this.setState({
+        user: [data, ...this.state.user]
+      })
+      this.setState({ username: '', email: '', password: '' })
+    })
+  }
+
+  render() {
+    const { classes } = this.props;
 
 
-         <Typography component="h1" variant="h5">
-            Sign Up
+    return (
+      <div>
+        <CssBaseline />
+        <MuiThemeProvider theme={theme}>
+          <Navigation />
+          <main className={classes.main}>
+            <Paper className={classes.paper}>
+
+              <Typography component="h1" variant="h5">
+                Sign Up
          </Typography>
-         <form className={classes.form}>
-          <FormControl margin="normal" required     fullWidth>
-            <InputLabel htmlFor="username">Username</InputLabel>
-            <Input id="username" name="username" autoComplete="username" autoFocus />
-          </FormControl>
+              <form onSubmit={this.handleSubmit} className={classes.form}>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="username">Username</InputLabel>
+                  <Input onChange={this.handleChange('username')} id="username" name="username" autoComplete="username" autoFocus />
+                </FormControl>
 
-            <FormControl margin="normal" required   fullWidth>
-               <InputLabel htmlFor="email">Email Address</InputLabel>
-              <Input id="email" name="email" autoComplete="email" autoFocus />
-            </FormControl>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="email">Email Address</InputLabel>
+                  <Input onChange={this.handleChange('email')} id="email" name="email" autoComplete="email" autoFocus />
+                </FormControl>
 
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Password</InputLabel>
+                  <Input onChange={this.handleChange('password')} name="password" type="password" id="password" autoComplete="current-password" />
+                </FormControl>
 
-          <FormControlLabel
-            control={<Checkbox value="remember" color="inherit" />}
-            label="Remember me"
-          />
-          
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="#607d8b" />}
+                  label="Remember me"
+                />
+
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Sign Up
           </Button>
-          <Typography variant="body2" align="center">
-              {'Have An Account Already '}
-              <Link gutterBottom href="login" align="center" underline="always">
-                Log In here
-              </Link>
-            </Typography>
-        </form>
-      </Paper>
-      </MuiThemeProvider>
-    </main>
-    </MuiThemeProvider>
-    </div>
-  );
+                <br />
+                <br />
+                <Typography>Have An Account <a href="/LogIn" className="active">LogIn</a> Here</Typography>
+
+              </form>
+            </Paper>
+          </main>
+        </MuiThemeProvider>
+      </div>
+    );
+  }
 }
 
 SignUp.propTypes = {

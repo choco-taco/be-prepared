@@ -5,16 +5,10 @@ var Schema = mongoose.Schema;
 
 
 const UserSchema = new mongoose.Schema({
-	firstName: {
+	username: {
 		type: String,
 		default:''
 	},
-
-	lastName: {
-		type: String,
-		default:''
-	},
-
 	email: {
 		type: String,
 		default:''

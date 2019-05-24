@@ -18,9 +18,6 @@ import styles from './Home.styles';
 // import Button from '@material-ui/core/Button';
 // import Grid from '@material-ui/core/Grid';
 // import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
 
 
 // **** CODE STARTS HERE ****
@@ -71,15 +68,10 @@ class Home extends React.Component {
         <CssBaseline />
         <MuiThemeProvider theme={theme}> 
         <Navigation/>
-        {/* <FloatingButtons/> */}
-        <main>
-       
         <div className={classNames(classes.layout, classes.cardGrid)}>
         </div>
         <Album />
         <BottomBar/>
-      </main>
-        
         </MuiThemeProvider>
         
       </div>

@@ -24,6 +24,7 @@ import Link from '@material-ui/core/Link';
 // **** CODE STARTS HERE ****
 
 // *** Theme-Related Code ***
+
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
@@ -56,9 +57,7 @@ function LogIn(props) {
       <MuiThemeProvider theme={theme}>
       <Navigation/>
         <main className={classes.main}>
-
-
-          
+        
           <Paper className={classes.paper}>
 
             <Typography component="h1" gutterBottom variant="h5">
