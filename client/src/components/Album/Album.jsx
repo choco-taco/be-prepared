@@ -68,15 +68,15 @@ const styles = theme => ({
 const cards = [
 	{
 		"key": 1,
-		"test": "Fire",
+		"test": "Our House",
 	},
 	{
 		"key": 2,
-		"test": "Earthquake",
+		"test": "Grandma's House",
 	},
 	{
 		"key": 3,
-		"test": "Tornado",
+		"test": "Dad's Work",
 	}
 ];
 

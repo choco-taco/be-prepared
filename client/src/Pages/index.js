@@ -4,6 +4,7 @@ import Landing from './Landing';
 import LogIn from './LogIn';
 import Album from '../components/Album';
 import CreatePlan from './CreatePlan ';
+import SinglePlan from './SinglePlan';
 
 export {
     Home,
@@ -11,7 +12,8 @@ export {
     Landing,
     LogIn,
     Album,
-    CreatePlan
+    CreatePlan,
+    SinglePlan
 };
 
 export default {
@@ -20,5 +22,6 @@ export default {
     Landing,
     LogIn,
     Album,
-    CreatePlan
+    CreatePlan,
+    SinglePlan
 };

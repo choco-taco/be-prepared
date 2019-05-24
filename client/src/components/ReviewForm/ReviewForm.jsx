@@ -11,6 +11,8 @@ import styles from './ReviewForm.styles';
 
 //******** MATERIAL UI ******** 
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+
 
 //******** CODE STARTS ******** 
 
@@ -78,7 +80,7 @@ class Review extends Component {
 
           <div>
             <Typography component="h1" variant="h4" align="center">
-              Review Emergency
+              Emergency Plan
             </Typography>
             {this.state.emergency.map(emergency => {
               return (
@@ -86,6 +88,8 @@ class Review extends Component {
                   Plan: {emergency.plan}<br />
                   Notes: {emergency.notes}
                   <br />
+                  <Divider/>
+                  <br/>
                 </Typography>
               )
             })}
@@ -93,7 +97,7 @@ class Review extends Component {
 
           <div>
             <Typography component="h1" variant="h4" align="center">
-              Review Contacts
+             Contacts
             </Typography>
             {this.state.contacts.map(contacts => {
               return (
@@ -101,6 +105,8 @@ class Review extends Component {
                   Mobile: {contacts.mobile}<br />
                   Address: {contacts.address}
                   <br />
+                  <Divider/>
+                  <br/>
                 </Typography>
               )
             })}
