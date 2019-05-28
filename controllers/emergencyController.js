@@ -11,7 +11,7 @@ module.exports = {
         db.Emergency
             .create(req.body)
             .then(dbModel => {
-                console.log(req.body); 
+                console.log(req.body);
 
                 res.json(dbModel)
             })

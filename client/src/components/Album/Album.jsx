@@ -34,6 +34,7 @@ class Album extends Component {
       console.log(data);
 this.setState({ emergency: data, loading: false });
   });
+  
 
 };
 
@@ -66,6 +67,10 @@ render = () => {
 
                     <Typography>
                      {emergency.plan}
+                    </Typography>
+
+                    <Typography>
+                     {emergency.contacts}
                     </Typography>
                     
                   </CardContent>
