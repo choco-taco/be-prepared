@@ -54,8 +54,8 @@ function LogIn(props) {
 
         <form className={classes.form}>
         <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="username">Username</InputLabel>
-            <Input id="username" name="username" autoComplete="username" autoFocus />
+            <InputLabel htmlFor="email">Email</InputLabel>
+            <Input id="email" name="email" autoComplete="email" autoFocus />
           </FormControl>
         
           <FormControl margin="normal" required fullWidth>

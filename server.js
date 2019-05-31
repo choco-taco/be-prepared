@@ -2,12 +2,38 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 const PORT = process.env.PORT || 3001;
 
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+/* ======= passport needs ======= */
+
+// Passport Config
+require('./config/passport')(passport); 
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session())
+
+// Connect flash
+app.use(flash());
+
+//================================
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

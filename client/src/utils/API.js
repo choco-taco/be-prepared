@@ -29,9 +29,12 @@ export default {
         return axios.delete("/api/emergency/" + id);
     },
     userSignUp: function (UserData) {
-        return axios.post("api/account/signup", UserData);
+        return axios.post("api/user/register", UserData);
     },
     userLogIn: function (UserData) {
-        return axios.post("/api/account/signin", UserData);
+        return axios.post("/api/user/login", UserData);
+    },
+    userLogout: function (UserData) {
+        return axios.get("/api/user/logout", UserData);
     }
 };
