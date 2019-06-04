@@ -11,13 +11,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Fab from '@material-ui/core/Fab';
 import IconButton from '@material-ui/core/IconButton';
-// import Typography from '@material-ui/core/Typography';
-// import Paper from '@material-ui/core/Paper';
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import ListSubheader from '@material-ui/core/ListSubheader';
-// import Avatar from '@material-ui/core/Avatar';
 
 // ********* MATERIAL UI ICON *********
 import MenuIcon from '@material-ui/icons/Menu';

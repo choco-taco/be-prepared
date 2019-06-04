@@ -22,10 +22,10 @@ const UserSchema = new mongoose.Schema({
 		type: Boolean,
 		default:false
 	},
-	emergency: [
+	card: [
 		{
 		  type: Schema.Types.ObjectId,
-		  ref: "Emergency"
+		  ref: "Card"
 		}
 	  ]
 });

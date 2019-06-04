@@ -62,7 +62,7 @@ function SinglePlan(props) {
             <div className={classes.heroUnit} >
              <div className={classes.heroContent} >
               <Typography component="h1" variant="h2" align="center" color="textPrimary"  gutterBottom >
-                 Grandma's House
+               
               </Typography>
 
               <Typography variant="h6" align="center"  paragraph>
