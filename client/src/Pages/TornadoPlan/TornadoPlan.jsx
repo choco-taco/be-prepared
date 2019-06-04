@@ -12,7 +12,7 @@ import Review from '../../components/ReviewForm';
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './SinglePlan.styles';
+import styles from './TornadoPlan.styles';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -48,7 +48,7 @@ const theme = createMuiTheme({
 });
 
 // *** Landing Page Code ***
-function SinglePlan(props) {
+function TornadoPlan(props) {
   const { classes } = props;
 
   return (
@@ -62,7 +62,7 @@ function SinglePlan(props) {
             <div className={classes.heroUnit} >
              <div className={classes.heroContent} >
               <Typography component="h1" variant="h2" align="center" color="textPrimary"  gutterBottom >
-                 Grandma's House
+                 Tornado Plan
               </Typography>
 
               <Typography variant="h6" align="center"  paragraph>
@@ -104,8 +104,8 @@ function SinglePlan(props) {
   );
 }
 
-SinglePlan.propTypes = {
+TornadoPlan.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SinglePlan);
+export default withStyles(styles)(TornadoPlan);

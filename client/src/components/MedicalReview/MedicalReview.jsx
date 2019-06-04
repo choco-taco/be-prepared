@@ -6,7 +6,7 @@ import API from "../../utils/API";
 //******** CSS AND STYLING  ******** 
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './ReviewForm.styles';
+import styles from './MedicalReview.styles';
 
 
 //******** MATERIAL UI ******** 
@@ -40,9 +40,9 @@ const theme = createMuiTheme({
   },
 });
 
-class Review extends Component {
+class MedicalReview extends Component {
   state = {
-    emergency: [],
+    medical: [],
     type: "",
     plan: "",
     notes: "",
@@ -53,14 +53,14 @@ class Review extends Component {
   };
 
   componentDidMount() {
-    this.loadEmergency();
+    this.loadMedical();
     this.loadContacts();
   }
 
-  loadEmergency = () => {
-    API.getEmergency()
+  loadMedical = () => {
+    API.getMedical()
       .then(res =>
-        this.setState({ emergency: res.data })
+        this.setState({ medical: res.data })
       )
       .catch(err => console.log(err));
   };
@@ -80,13 +80,13 @@ class Review extends Component {
 
           <div>
             <Typography component="h1" variant="h4" align="center">
-              Emergency Plan
+              Medical Plan
             </Typography>
-            {this.state.emergency.map(emergency => {
+            {this.state.medical.map(medical => {
               return (
-                <Typography key={emergency._id}><i className="fas fa-fire-extinguisher"></i>Type: {emergency.type}<br />
-                  <i className="fas fa-map"></i> Plan: {emergency.plan}<br />
-                  <i className="fas fa-sticky-note"></i> Notes: {emergency.notes}
+                <Typography key={medical._id}><i className="fas fa-fire-extinguisher"></i>Type: {medical.type}<br />
+                  <i className="fas fa-map"></i> Plan: {medical.plan}<br />
+                  <i className="fas fa-sticky-note"></i> Notes: {medical.notes}
                 </Typography>
               )
             })}
@@ -111,4 +111,4 @@ class Review extends Component {
   }
 }
 
-export default withStyles(styles)(Review);
+export default withStyles(styles)(MedicalReview);

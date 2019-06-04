@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 //******** CSS AND STYLING  ******** 
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './CreatePlan.styles';
+import styles from './CreateMedical.styles';
 
 //******** MATERIAL UI ******** 
 import Paper from '@material-ui/core/Paper';
@@ -17,8 +17,10 @@ import Typography from '@material-ui/core/Typography';
 
 //******** COMPONENTS AND STUFF ******** 
 import ContactForm from '../../components/ContactForm';
-import EmergencyForm from '../../components/EmergencyForm';
-import Review from '../../components/ReviewForm';
+import MedicalForm from '../../components/MedicalForm';
+import MedicalReview from '../../components/MedicalReview';
+// import EmergencyForm from '../../components/EmergencyForm';
+// import Review from '../../components/ReviewForm';
 import Navigation from '../../components/Navigation';
 
 
@@ -50,10 +52,10 @@ const theme = createMuiTheme({
 
 const steps = ['Household', 'Emergency', 'Done!'];
 
-class CreatePlan extends React.Component {
+class CreateMedical extends React.Component {
   state = {
     activeStep: 0,
-    emergency: [],
+    medical: [],
     contacts: [],
   };
 
@@ -63,9 +65,9 @@ class CreatePlan extends React.Component {
       case 0:
         return <ContactForm saveContacts={this.saveContacts} />;
       case 1:
-        return <EmergencyForm contacts={this.state.contacts} saveEmergencies={this.saveEmergencies} />;
+        return <MedicalForm contacts={this.state.contacts} saveMedical={this.saveMedical} />;
       case 2:
-          return <Review />;
+          return <MedicalReview />;
       default:
         throw new Error('Unknown step');
     }
@@ -76,9 +78,9 @@ class CreatePlan extends React.Component {
     })
   }
 
-  saveEmergencies  = (newEmergencies) => {
+  saveMedical  = (newMedical) => {
     this.setState({
-      emergency: newEmergencies
+      emergency: newMedical
     })
   }
 
@@ -114,7 +116,7 @@ class CreatePlan extends React.Component {
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
-              Edit Plan Information
+              Edit Medical Plan Information
             </Typography>
             <Stepper activeStep={activeStep} className={classes.stepper}>
               {steps.map(label => (
@@ -165,8 +167,8 @@ class CreatePlan extends React.Component {
   }
 }
 
-CreatePlan.propTypes = {
+CreateMedical.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CreatePlan);
+export default withStyles(styles)(CreateMedical);
