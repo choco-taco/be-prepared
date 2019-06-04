@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import './App.css';
-import { SignUp, Home, Landing, LogIn, CreatePlan, SinglePlan, ReviewForm } from "./Pages";
+import { SignUp, Home, Landing, LogIn, CreatePlan, SinglePlan, SharePlan, MedicalPlan, FirePlan, EarthquakePlan, TornadoPlan, CreateMedical} from "./Pages";
 
 class App extends Component {
   state = {
     user: null
   };
+
 
   render = () => (
     <BrowserRouter>
@@ -23,7 +24,17 @@ class App extends Component {
 
       <Route exact path={`${process.env.PUBLIC_URL}/singleplan`} component={SinglePlan} />
 
-      <Route exact path={`${process.env.PUBLIC_URL}/reviewform`} component={ReviewForm} />
+      <Route exact path={`${process.env.PUBLIC_URL}/shareplan`} component={SharePlan} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/medicalplan`} component={MedicalPlan} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/fireplan`} component={FirePlan} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/earthquakeplan`} component={EarthquakePlan} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/tornadoplan`} component={TornadoPlan} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/createmedical`} component={CreateMedical} />
 
     </BrowserRouter>
   );

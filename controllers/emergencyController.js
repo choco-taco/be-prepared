@@ -11,8 +11,6 @@ module.exports = {
         db.Emergency
             .create(req.body)
             .then(dbModel => {
-                console.log(req.body); 
-
                 res.json(dbModel)
             })
             .catch(err => res.status(422).json(err));

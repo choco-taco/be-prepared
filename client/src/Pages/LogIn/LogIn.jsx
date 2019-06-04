@@ -20,6 +20,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+// import RenderToLayer from 'material-ui/internal/RenderToLayer';
+
+//API calls
+import API from "../../utils/API";
 
 // **** CODE STARTS HERE ****
 
@@ -48,60 +52,86 @@ const theme = createMuiTheme({
   },
 });
 
-function LogIn(props) {
-  const { classes } = props;
+class LogIn extends React.Component {
 
-  return (
-    <div>
-      <CssBaseline />
-      <MuiThemeProvider theme={theme}>
-      <Navigation/>
-        <main className={classes.main}>
-        
-          <Paper className={classes.paper}>
+  state = {
+    user: [],
+    email: '',
+    password: ''
+  }
 
-            <Typography component="h1" gutterBottom variant="h5">
-              Log In
-        </Typography>
-            <Typography variant="body2" align="center">
-              {'Not a member yet? '}
-              <Link href="signup" align="center" underline="always">
-                Sign Up here
-              </Link>
-            </Typography>
-            <form className={classes.form}>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="username">Username</InputLabel>
-                <Input id="username" name="username" autoComplete="username" autoFocus />
-              </FormControl>
+  componentDidMount() {
+    this.handleSubmit()
+  }
 
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="password">Password</InputLabel>
-                <Input name="password" type="password" id="password" autoComplete="current-password" />
-              </FormControl>
-              <FormControlLabel
-                control={<Checkbox value="remember" color="#607d8b" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
+  handleChange = key => {
+    return event => {
+      this.setState({
+        [key]: event.target.value
+      })
+    }
+  };
+
+  handleSubmit = event => {
+    API.userLogIn({
+      email: this.state.email,
+      password: this.state.password
+    }).then(({ data }) => {
+      this.setState({
+        user: [data, ...this.state.user]
+      })
+      this.setState({ email: '', password: '' })
+    })
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div>
+        <CssBaseline />
+        <MuiThemeProvider theme={theme}>
+          <Navigation />
+          <main className={classes.main}>
+            <Paper className={classes.paper}>
+              <Typography component="h1" gutterBottom variant="h5">
                 Log In
-          </Button>
-            </form>
-          </Paper>
+        </Typography>
+              <Typography variant="body2" align="center">
+                {'Not a member yet? '}
+                <Link href="signup" align="center" underline="always">
+                  Sign Up here
+              </Link>
+              </Typography>
+              <form onSubmit={this.handleSubmit} className={classes.form}>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="Email">Email</InputLabel>
+                  <Input onChange={this.handleChange('email')} id="email" name="email" autoComplete="email" autoFocus />
+                </FormControl>
 
-      
-    </main>
-    </MuiThemeProvider>
-    </div>
-  );
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Password</InputLabel>
+                  <Input onChange={this.handleChange('password')} name="password" type="password" id="password" autoComplete="current-password" />
+                </FormControl>
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >Log In</Button>
+              </form>
+            </Paper>
+          </main>
+        </MuiThemeProvider>
+      </div>
+    );
+  }
 }
-
 LogIn.propTypes = {
   classes: PropTypes.object.isRequired,
 };

@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export default {
+    // **** USER LOGIN API ****
+    userSignUp: function (UserData) {
+        return axios.post("api/account/signup", UserData);
+    },
+    userLogIn: function (UserData) {
+        return axios.post("/api/account/signin", UserData);
+    },
+
     // **** CONTACT API ****
     getContacts: function () {
         return axios.get("/api/contacts");
@@ -28,10 +36,28 @@ export default {
     deleteEmergency: function (id) {
         return axios.delete("/api/emergency/" + id);
     },
+    // **** MEDICAL API ****
+    getMedical: function () {
+        return axios.get("/api/medical");
+    },
+    saveMedical: function (medicalData) {
+        return axios.post("/api/medical", medicalData);
+    },
+    // getEmergency: function (id) {
+    //     return axios.get("/api/contacts/" + id);
+    // },
+    deleteMedical: function (id) {
+        return axios.delete("/api/medical/" + id);
+    },
+
     userSignUp: function (UserData) {
-        return axios.post("api/account/signup", UserData);
+        return axios.post("api/user/register", UserData);
     },
     userLogIn: function (UserData) {
-        return axios.post("/api/account/signin", UserData);
+        return axios.post("/api/user/login", UserData);
+    },
+    userLogout: function (UserData) {
+        return axios.get("/api/user/logout", UserData);
     }
+
 };

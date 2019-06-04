@@ -11,7 +11,7 @@ import styles from './ReviewForm.styles';
 
 //******** MATERIAL UI ******** 
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+// import Divider from '@material-ui/core/Divider';
 
 
 //******** CODE STARTS ******** 
@@ -84,12 +84,9 @@ class Review extends Component {
             </Typography>
             {this.state.emergency.map(emergency => {
               return (
-                <Typography key={emergency._id}>Type: {emergency.type}<br />
-                  Plan: {emergency.plan}<br />
-                  Notes: {emergency.notes}
-                  <br />
-                  <Divider/>
-                  <br/>
+                <Typography key={emergency._id}><i className="fas fa-fire-extinguisher"></i>Type: {emergency.type}<br />
+                  <i className="fas fa-map"></i> Plan: {emergency.plan}<br />
+                  <i className="fas fa-sticky-note"></i> Notes: {emergency.notes}
                 </Typography>
               )
             })}
@@ -101,12 +98,9 @@ class Review extends Component {
             </Typography>
             {this.state.contacts.map(contacts => {
               return (
-                <Typography key={contacts._id}>Name: {contacts.name}<br />
-                  Mobile: {contacts.mobile}<br />
-                  Address: {contacts.address}
-                  <br />
-                  <Divider/>
-                  <br/>
+                <Typography key={contacts._id}><i className="fas fa-child"></i> Name: {contacts.name}<br />
+                  <i className="fas fa-mobile-alt"></i> Mobile: {contacts.mobile}<br />
+                  <i className="fas fa-home"></i> Address: {contacts.address}
                 </Typography>
               )
             })}

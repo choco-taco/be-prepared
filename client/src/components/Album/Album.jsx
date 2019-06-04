@@ -68,16 +68,24 @@ const styles = theme => ({
 const cards = [
 	{
 		"key": 1,
-		"test": "Fire",
-		"plan": "Run"
+		"name": "Medical",
+  "link": "/medicalplan",
+  "edit":"/createmedical"
 	},
 	{
 		"key": 2,
-		"test": "Earthquake",
+		"name": "Fire",
+		"link": "/fireplan"
 	},
 	{
 		"key": 3,
-		"test": "Tornado",
+		"name": "Earthquake",
+		"link": "/earthquakeplan"
+	},
+	{
+		"key": 4,
+		"name": "Tornado",
+		"link": "/tornadoplan"
 	}
 ];
 
@@ -107,7 +115,7 @@ class Album extends Component {
 										/>
 										<CardContent className={classes.cardContent}>
 											<Typography gutterBottom variant="h5" component="h2">
-												{card.test}
+												{card.name}
 											</Typography>
 											<Typography>
 												{card.plan}
@@ -118,11 +126,10 @@ class Album extends Component {
 										</CardContent>
 
 										<CardActions>
-											<Button size="small" color="primary"
-											href={'/review'}>
+											<Button size="small" color="primary" href={card.link}>
 												View
-                   							</Button>
-											<Button size="small" color="primary">
+                    </Button>
+											<Button size="small" color="primary" href={card.edit}>
 												Edit
                     						</Button>
 										</CardActions>

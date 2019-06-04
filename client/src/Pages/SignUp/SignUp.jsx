@@ -118,7 +118,7 @@ class SignUp extends React.Component {
                 </FormControl>
 
                 <FormControlLabel
-                  control={<Checkbox value="remember" color="#607d8b" />}
+                  control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
                 />
 

@@ -48,7 +48,7 @@ const theme = createMuiTheme({
   },
 });
 
-const steps = ['Household', 'Emergency', 'Blank'];
+const steps = ['Household', 'Emergency', 'Done!'];
 
 class CreatePlan extends React.Component {
   state = {
@@ -126,13 +126,15 @@ class CreatePlan extends React.Component {
             <React.Fragment>
               {activeStep === steps.length ? (
                 <React.Fragment>
-                  <Typography variant="h5" gutterBottom>
-                    Thank you.
+                  <Typography variant="h5" gutterBottom align="center">
+                    You're going to live!
+                    <br/>
+                    <i class="fas fa-glass-cheers"></i>
                   </Typography>
-                  <Typography variant="subtitle1">
-                    Your Plan Has been created.
+                  <Typography variant="subtitle1" align="center">
+                    Your Plan Has been created. You may view your plan by clicking the button below.
                   </Typography>
-                  <a href="/singleplan"><Button color="secondary" variant="contained">View Plan</Button></a>
+                  <div align="center"><a href="/singleplan"><Button color="secondary" variant="contained">View Plan</Button></a></div>
                 </React.Fragment>
               ) : (
                   <React.Fragment>
