@@ -29,11 +29,16 @@ app.use(session({
       touchAfter: 24 * 3600 // time period in seconds
   })
 }));
+const sess = {
+  secret: 'keyboard cat',
+  cookie: {}
+}
 
 if (app.get('env') === 'production') {
   app.set('trust proxy', 1) // trust first proxy
   sess.cookie.secure = true // serve secure cookies
 }
+app.use(session(sess))
 
 // Passport middleware
 app.use(passport.initialize());
