@@ -11,6 +11,10 @@ import FirePlan from './FirePlan';
 import EarthquakePlan from './EarthquakePlan';
 import TornadoPlan from './TornadoPlan';
 import CreateMedical from './CreateMedical';
+import CreateFire from './CreateFire';
+import CreateEarthquake from './CreateEarthquake';
+import CreateTornado from './CreateTornado';
+
 
 export {
     Home,
@@ -25,7 +29,10 @@ export {
     FirePlan,
     EarthquakePlan,
     TornadoPlan,
-    CreateMedical
+    CreateMedical,
+    CreateFire,
+    CreateEarthquake,
+    CreateTornado
 };
 
 export default {
@@ -41,5 +48,8 @@ export default {
     FirePlan,
     EarthquakePlan,
     TornadoPlan,
-    CreateMedical
+    CreateMedical,
+    CreateFire,
+    CreateEarthquake,
+    CreateTornado
 };

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Navigation from '../../components/Navigation';
 // import ContactForm from '../../components/ContactForm';
 // import EmergencyForm from '../../components/EmergencyForm';
-import Review from '../../components/ReviewForm';
+import TornadoReview from '../../components/TornadoReview';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
@@ -72,7 +72,7 @@ function TornadoPlan(props) {
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
                 <Grid item>
-                  <Button href="/createplan" variant="contained" >
+                  <Button href="/createtornado" variant="contained" >
                    Edit
                   </Button>
                 </Grid>
@@ -93,7 +93,7 @@ function TornadoPlan(props) {
 
         <main className={classes.layout}>
         <Paper className={classes.paper}>
-        <Review/>
+        <TornadoReview/>
         </Paper>
         </main>
 

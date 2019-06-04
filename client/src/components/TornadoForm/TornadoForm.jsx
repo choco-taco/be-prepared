@@ -5,7 +5,7 @@ import API from "../../utils/API";
 // ******* CSS AND STYLING *******
 import {withStyles,MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './EmergencyForm.styles';
+import styles from './TornadoForm.styles';
 
 //******** MATERIAL UI ******** 
 import Grid from '@material-ui/core/Grid';
@@ -38,22 +38,22 @@ const theme = createMuiTheme({
 });
 
 
-class EmergencyForm extends Component {
+class TornadoForm extends Component {
   state = {
-    emergency: [],
-    // type: "",
+    tornado: [],
+    type: "",
     plan: "",
     notes: ""
   };
 
   componentDidMount() {
-    this.loadEmergency();
+    this.loadTornado();
   }
 
-  loadEmergency = () => {
-    API.getEmergency()
+  loadTornado = () => {
+    API.getTornado()
       .then(res =>
-        this.setState({ emergency: res.data })
+        this.setState({ tornado: res.data })
       )
       .catch(err => console.log(err));
   };
@@ -67,9 +67,9 @@ class EmergencyForm extends Component {
   };
 
   handleDelete = id => () => {
-    API.deleteEmergency(id).then(() => {
+    API.deleteTornado(id).then(() => {
       this.setState({
-        emergency: this.state.emergency.filter((item) => item._id !== id)
+        tornado: this.state.tornado.filter((item) => item._id !== id)
       });
     });
   }
@@ -77,21 +77,21 @@ class EmergencyForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const contactIds = this.props.contacts.map(contact => contact._id);
-    API.saveEmergency({
-      // type: this.state.type,
+    API.saveTornado({
+      type: this.state.type,
       plan: this.state.plan,
       notes: this.state.notes,
       contacts: contactIds
     }).then(({data}) => {
-      const newEmergency = [data,
-        ...this.state.emergency]
+      const newTornado = [data,
+        ...this.state.tornado]
       this.setState({
-        emergency: newEmergency,
-        // type: '', 
+        tornado: newTornado,
+        type: '', 
         plan: '', 
         notes: ''
       });
-      this.props.saveEmergencies(newEmergency)
+      this.props.saveTornado(newTornado)
     })
   }
 
@@ -101,9 +101,9 @@ class EmergencyForm extends Component {
         <CssBaseline />
         <MuiThemeProvider theme={theme}> 
         <form onSubmit={this.handleSubmit}>
-        {/* <Grid item xs={12}>
+        <Grid item xs={12}>
           <TextField fullWidth name="type" placeholder="Type" onChange={this.handleChange('type')} value={this.state.type}/>
-          </Grid> */}
+          </Grid>
           <Grid item xs={12}>
           <TextField fullWidth name="plan" placeholder="Plan" onChange={this.handleChange('plan')} value={this.state.plan}/>
           </Grid>
@@ -114,15 +114,15 @@ class EmergencyForm extends Component {
         </form>
         <div>
         <Typography component="h1" variant="h4" align="center">
-              Emergency
+              Tornado
             </Typography>
-          {this.state.emergency.map(emergency => {
+          {this.state.tornado.map(tornado => {
             return (
-              <Typography key={emergency._id}> 
-              Plan: {emergency.plan}<br/>
-              Notes: {emergency.notes}
+              <Typography key={tornado._id}>Type: {tornado.type}<br/>
+              Plan: {tornado.plan}<br/>
+              Notes: {tornado.notes}
               <br/>
-              <IconButton onClick={this.handleDelete(emergency._id)} variant="contained" color="primary"><DeleteIcon fontSize="small" /></IconButton>
+              <IconButton onClick={this.handleDelete(tornado._id)} variant="contained" color="primary"><DeleteIcon fontSize="small" /></IconButton>
               </Typography>
             )})}
         </div>
@@ -132,4 +132,4 @@ class EmergencyForm extends Component {
   }
 }
 
-export default withStyles(styles)(EmergencyForm);
+export default withStyles(styles)(TornadoForm);
