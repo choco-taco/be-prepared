@@ -6,7 +6,7 @@ import classNames from 'classnames';
 // **** COMPONENTS ****
 import Navigation from '../../components/Navigation';
 import Album from '../../components/Album';
-import BottomBar from '../../components/BottomBar';
+// import BottomBar from '../../components/BottomBar';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
@@ -67,7 +67,7 @@ class Home extends React.Component {
 
 
         <Album />
-        <BottomBar/>
+        {/* <BottomBar/> */}
         </MuiThemeProvider>
         
       </div>

@@ -93,24 +93,90 @@ mongoose.connect(
 
 // MEDICAL EMERGENCY SEEDS
 // **********************************************
-const medicalSeed = [
+// const medicalSeed = [
+//   {
+//     type: "Medical",
+//     plan: "Medical Plan",
+//     notes: "Medical Plan"
+//   }
+// ]
+
+// db.Medical
+//   .deleteMany({})
+//   .then(() => db.Medical.collection.insertMany(medicalSeed))
+//   .then(data => {
+//     console.log(data.result.n + " MEDICAL records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+
+// // FIRE EMERGENCY SEEDS
+// // **********************************************
+// const fireSeed = [
+//   {
+//     type: "Fire",
+//     plan: "Fire Plan",
+//     notes: "Fire Plan"
+//   }
+// ]
+
+// db.Fire
+//   .deleteMany({})
+//   .then(() => db.Fire.collection.insertMany(fireSeed))
+//   .then(data => {
+//     console.log(data.result.n + " FIRE records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+
+// EARTHQUAKE EMERGENCY SEEDS
+// **********************************************
+// const earthquakeSeed = [
+//   {
+//     type: "Earthquake",
+//     plan: "Earthquake Plan",
+//     notes: "Earthquake Plan"
+//   }
+// ]
+
+// db.Earthquake
+//   .deleteMany({})
+//   .then(() => db.Earthquake.collection.insertMany(earthquakeSeed))
+//   .then(data => {
+//     console.log(data.result.n + " EARTHQUAKE records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+  // TORNADO EMERGENCY SEEDS
+// **********************************************
+const tornadoSeed = [
   {
-    type: "Medical",
-    plan: "Medical Plan",
-    notes: "Medical Plan"
+    type: "Tornado",
+    plan: "Tornado Plan",
+    notes: "Tornado Plan"
   }
 ]
 
-db.Medical
+db.Tornado
   .deleteMany({})
-  .then(() => db.Medical.collection.insertMany(medicalSeed))
+  .then(() => db.Tornado.collection.insertMany(tornadoSeed))
   .then(data => {
-    console.log(data.result.n + " MEDICAL records inserted!");
+    console.log(data.result.n + " EARTHQUAKE records inserted!");
     process.exit(0);
   })
   .catch(err => {
     console.error(err);
     process.exit(1);
   });
-
-

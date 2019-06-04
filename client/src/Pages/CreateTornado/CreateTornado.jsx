@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 //******** CSS AND STYLING  ******** 
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './CreatePlan.styles';
+import styles from './CreateTornado.styles';
 
 //******** MATERIAL UI ******** 
 import Paper from '@material-ui/core/Paper';
@@ -17,8 +17,10 @@ import Typography from '@material-ui/core/Typography';
 
 //******** COMPONENTS AND STUFF ******** 
 import ContactForm from '../../components/ContactForm';
-import EmergencyForm from '../../components/EmergencyForm';
-import Review from '../../components/ReviewForm';
+import TornadoForm from '../../components/TornadoForm';
+import TornadoReview from '../../components/TornadoReview';
+// import EmergencyForm from '../../components/EmergencyForm';
+// import Review from '../../components/ReviewForm';
 import Navigation from '../../components/Navigation';
 
 
@@ -50,10 +52,10 @@ const theme = createMuiTheme({
 
 const steps = ['Household', 'Emergency', 'Done!'];
 
-class CreatePlan extends React.Component {
+class CreateTornado extends React.Component {
   state = {
     activeStep: 0,
-    emergency: [],
+    tornado: [],
     contacts: [],
   };
 
@@ -63,9 +65,9 @@ class CreatePlan extends React.Component {
       case 0:
         return <ContactForm saveContacts={this.saveContacts} />;
       case 1:
-        return <EmergencyForm contacts={this.state.contacts} saveEmergencies={this.saveEmergencies} />;
+        return <TornadoForm contacts={this.state.contacts} saveTornado={this.saveTornado} />;
       case 2:
-          return <Review />;
+          return <TornadoReview />;
       default:
         throw new Error('Unknown step');
     }
@@ -76,9 +78,9 @@ class CreatePlan extends React.Component {
     })
   }
 
-  saveEmergencies  = (newEmergencies) => {
+  saveTornado  = (newTornado) => {
     this.setState({
-      emergency: newEmergencies
+      emergency: newTornado
     })
   }
 
@@ -106,15 +108,6 @@ class CreatePlan extends React.Component {
     const { classes } = this.props;
     const { activeStep } = this.state;
 
-    const plan = [
-      {
-        "key": 1,
-        "name": "Medical",
-        "link": "medicalplan",
-        "review": "/medicalreview"
-      }
-    ];
-
     return (
       <React.Fragment>
         <CssBaseline />
@@ -123,7 +116,7 @@ class CreatePlan extends React.Component {
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
-              Edit Plan Information
+              Edit Tornado Plan Information
             </Typography>
             <Stepper activeStep={activeStep} className={classes.stepper}>
               {steps.map(label => (
@@ -138,12 +131,12 @@ class CreatePlan extends React.Component {
                   <Typography variant="h5" gutterBottom align="center">
                     You're going to live!
                     <br/>
-                    <i class="fas fa-glass-cheers"></i>
+                    <i className="fas fa-glass-cheers"></i>
                   </Typography>
                   <Typography variant="subtitle1" align="center">
-                    Your Plan Has been created. You may view your plan by clicking the button below.
+                  Your Plan Has been created. View your plan by clicking the button below.
                   </Typography>
-                  <div align="center"><a href={plan.link}><Button color="secondary" variant="contained">View Plan</Button></a></div>
+                  <div align="center"><a href="/tornadoplan"><Button color="secondary" variant="contained">View Plan</Button></a></div>
                 </React.Fragment>
               ) : (
                   <React.Fragment>
@@ -174,8 +167,8 @@ class CreatePlan extends React.Component {
   }
 }
 
-CreatePlan.propTypes = {
+CreateTornado.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CreatePlan);
+export default withStyles(styles)(CreateTornado);
