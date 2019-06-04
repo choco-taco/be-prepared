@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const app = express();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const flash = require('connect-flash');
+// const flash = require('connect-flash');
+// const session = require('express-session');
+
 
 // Load User model
 const User = require('../../models/User');
@@ -33,6 +36,11 @@ router.post('/register', (req, res) => {
   }
 
   if (errors.length > 0) {
+    req.login(user, function (err) {
+      if (err) { return next(err); }
+      return res.redirect('/home' + req.user.username);
+    });
+    console.log('signed up')
     res.json('register', {
       errors,
       username,
@@ -40,10 +48,11 @@ router.post('/register', (req, res) => {
       password
     });
   } else {
+    console.log('signup failed')
     User.findOne({ email: email }).then(user => {
       if (user) {
         errors.push({ msg: 'Email already exists' });
-        res.status(200).json({
+        res.status(400).json({
           errors,
           username,
           email,
@@ -67,7 +76,7 @@ router.post('/register', (req, res) => {
                   'success_msg',
                   'You are now registered and can log in'
                 );
-                res.redirect('/users/login');
+                res.redirect('/user/login');
               })
               .catch(err => console.log(err));
           });
@@ -78,19 +87,31 @@ router.post('/register', (req, res) => {
 });
 
 // Login
+// app.post('/login',
+//   passport.authenticate('local', {
+//     failureRedirect: '/login'
+//   }, console.log('login failed')),
+//   function (req, res) {
+//     console.log('login successful')
+//     res.redirect('/home');
+//   });
+
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/home',
-    failureRedirect: '/users/login',
+    failureRedirect: '/',
     failureFlash: true
-  })(req, res, next);
+  }, res.redirect('http://localhost:3000/home'))(req, res, next);
 });
 
 // Logout
 router.get('/logout', (req, res) => {
   req.logout();
+  req.session.destroy(function (err) {
+    if (err) throw err;
+  })
   req.flash('success_msg', 'You are logged out');
-  res.redirect('/users/login');
+  res.redirect('/LogIn');
 });
 
 module.exports = router;
