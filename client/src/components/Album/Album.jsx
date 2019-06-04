@@ -89,7 +89,10 @@ const cards = [
 	}
 ];
 
+
+
 class Album extends Component {
+
 
 	render(props) {
 		const { classes } = this.props;
@@ -115,16 +118,20 @@ class Album extends Component {
 												{card.name}
 											</Typography>
 											<Typography>
-												This is a media card. You can use this section to describe the content.
-                    </Typography>
+												{card.plan}
+											</Typography>
+											<Typography>
+
+											</Typography>
 										</CardContent>
+
 										<CardActions>
 											<Button size="small" color="primary" href={card.link}>
 												View
                     </Button>
 											<Button size="small" color="primary" href={card.edit}>
 												Edit
-                    </Button>
+                    						</Button>
 										</CardActions>
 									</Card>
 								</Grid>

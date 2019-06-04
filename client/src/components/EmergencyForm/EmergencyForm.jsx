@@ -41,7 +41,7 @@ const theme = createMuiTheme({
 class EmergencyForm extends Component {
   state = {
     emergency: [],
-    type: "",
+    // type: "",
     plan: "",
     notes: ""
   };
@@ -78,7 +78,7 @@ class EmergencyForm extends Component {
     event.preventDefault();
     const contactIds = this.props.contacts.map(contact => contact._id);
     API.saveEmergency({
-      type: this.state.type,
+      // type: this.state.type,
       plan: this.state.plan,
       notes: this.state.notes,
       contacts: contactIds
@@ -87,7 +87,7 @@ class EmergencyForm extends Component {
         ...this.state.emergency]
       this.setState({
         emergency: newEmergency,
-        type: '', 
+        // type: '', 
         plan: '', 
         notes: ''
       });
@@ -101,9 +101,9 @@ class EmergencyForm extends Component {
         <CssBaseline />
         <MuiThemeProvider theme={theme}> 
         <form onSubmit={this.handleSubmit}>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <TextField fullWidth name="type" placeholder="Type" onChange={this.handleChange('type')} value={this.state.type}/>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
           <TextField fullWidth name="plan" placeholder="Plan" onChange={this.handleChange('plan')} value={this.state.plan}/>
           </Grid>
@@ -118,7 +118,7 @@ class EmergencyForm extends Component {
             </Typography>
           {this.state.emergency.map(emergency => {
             return (
-              <Typography key={emergency._id}>Type: {emergency.type}<br/>
+              <Typography key={emergency._id}> 
               Plan: {emergency.plan}<br/>
               Notes: {emergency.notes}
               <br/>

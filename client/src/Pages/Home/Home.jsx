@@ -7,17 +7,11 @@ import classNames from 'classnames';
 import Navigation from '../../components/Navigation';
 import Album from '../../components/Album';
 import BottomBar from '../../components/BottomBar';
-// import FloatingButtons from '../../components/FloatingButtons';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import styles from './Home.styles';
-
-// **** MATERIAL UI ****
-// import Button from '@material-ui/core/Button';
-// import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
 
 
 // **** CODE STARTS HERE ****
@@ -70,6 +64,8 @@ class Home extends React.Component {
         <Navigation/>
         <div className={classNames(classes.layout, classes.cardGrid)}>
         </div>
+
+
         <Album />
         <BottomBar/>
         </MuiThemeProvider>

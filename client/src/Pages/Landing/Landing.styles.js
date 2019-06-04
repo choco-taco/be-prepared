@@ -9,8 +9,7 @@ export default theme => ({
   },
   heroUnit: {
     background: theme.palette.background.paper, 
-
-
+    backgroundColor: '#efdcd5',
   },
   heroContent: {
     maxWidth: 600,
@@ -31,6 +30,24 @@ export default theme => ({
     },
   },
   left: {
-    flex: .5,
+    flex: .5, 
   },
+
+  title: {
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5,
+  },
+  item: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: theme.spacing.unit * (0, 5),
+  },
+  fab: {
+    position: 'relative',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+ 
+  
 });
