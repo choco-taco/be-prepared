@@ -8,6 +8,7 @@ const emergencySchema = new Schema({
   notes: { type: String, required: true }
 });
 
+//change this to 'plan'
 const Emergency = mongoose.model("Emergency", emergencySchema);
 
 module.exports = Emergency;

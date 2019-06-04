@@ -36,7 +36,6 @@ export default {
     deleteEmergency: function (id) {
         return axios.delete("/api/emergency/" + id);
     },
-
     // **** MEDICAL API ****
     getMedical: function () {
         return axios.get("/api/medical");
@@ -49,6 +48,16 @@ export default {
     // },
     deleteMedical: function (id) {
         return axios.delete("/api/medical/" + id);
+    },
+
+    userSignUp: function (UserData) {
+        return axios.post("api/user/register", UserData);
+    },
+    userLogIn: function (UserData) {
+        return axios.post("/api/user/login", UserData);
+    },
+    userLogout: function (UserData) {
+        return axios.get("/api/user/logout", UserData);
     }
-    
+
 };

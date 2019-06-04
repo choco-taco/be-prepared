@@ -8,6 +8,7 @@ const contactSchema = new Schema({
   address: { type: String, required: true }
 });
 
+//change this to 'plan'
 const Contact = mongoose.model("Contact", contactSchema);
 
 module.exports = Contact;
