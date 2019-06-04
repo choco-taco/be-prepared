@@ -68,15 +68,24 @@ const styles = theme => ({
 const cards = [
 	{
 		"key": 1,
-		"test": "Our House",
+		"name": "Medical",
+  "link": "/medicalplan",
+  "edit":"/createmedical"
 	},
 	{
 		"key": 2,
-		"test": "Grandma's House",
+		"name": "Fire",
+		"link": "/fireplan"
 	},
 	{
 		"key": 3,
-		"test": "Dad's Work",
+		"name": "Earthquake",
+		"link": "/earthquakeplan"
+	},
+	{
+		"key": 4,
+		"name": "Tornado",
+		"link": "/tornadoplan"
 	}
 ];
 
@@ -103,17 +112,17 @@ class Album extends Component {
 										/>
 										<CardContent className={classes.cardContent}>
 											<Typography gutterBottom variant="h5" component="h2">
-												{card.test}
+												{card.name}
 											</Typography>
 											<Typography>
 												This is a media card. You can use this section to describe the content.
                     </Typography>
 										</CardContent>
 										<CardActions>
-											<Button size="small" color="primary" href="/singleplan">
+											<Button size="small" color="primary" href={card.link}>
 												View
                     </Button>
-											<Button size="small" color="primary" href="/createplan">
+											<Button size="small" color="primary" href={card.edit}>
 												Edit
                     </Button>
 										</CardActions>
