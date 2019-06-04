@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import './App.css';
-import { SignUp, Home, Landing, LogIn, CreatePlan, SinglePlan, SharePlan, MedicalPlan, FirePlan, EarthquakePlan, TornadoPlan, CreateMedical} from "./Pages";
+import { SignUp, Home, Landing, LogIn, CreatePlan, SinglePlan, SharePlan, MedicalPlan, FirePlan, EarthquakePlan, TornadoPlan, CreateMedical, CreateFire, CreateEarthquake, CreateTornado} from "./Pages";
 
 class App extends Component {
   state = {
     user: null
   };
-
 
   render = () => (
     <BrowserRouter>
@@ -35,6 +34,12 @@ class App extends Component {
       <Route exact path={`${process.env.PUBLIC_URL}/tornadoplan`} component={TornadoPlan} />
 
       <Route exact path={`${process.env.PUBLIC_URL}/createmedical`} component={CreateMedical} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/createfire`} component={CreateFire} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/createearthquake`} component={CreateEarthquake} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/createtornado`} component={CreateTornado} />
 
     </BrowserRouter>
   );

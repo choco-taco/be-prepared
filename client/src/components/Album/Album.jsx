@@ -69,30 +69,39 @@ const cards = [
 	{
 		"key": 1,
 		"name": "Medical",
-  "link": "/medicalplan",
-  "edit":"/createmedical"
+		"image": "../images/medical-image.jpg",
+		"plan": "Emergencies that require Medical attention",
+		"link": "/medicalplan",
+		"edit": "/createmedical"
 	},
 	{
 		"key": 2,
 		"name": "Fire",
-		"link": "/fireplan"
+		"image" : "../images/fire-image.jpg",
+		"plan": "Emergencies where there is Fire involved.",
+		"link": "/fireplan",
+		"edit": "/createfire"
+		
 	},
 	{
 		"key": 3,
 		"name": "Earthquake",
-		"link": "/earthquakeplan"
+		"image" : "../images/earthquake-image.jpg",
+		"plan": "Emergencies in case of Earthquake.",
+		"link": "/earthquakeplan",
+		"edit": "/createearthquake"
 	},
 	{
 		"key": 4,
 		"name": "Tornado",
-		"link": "/tornadoplan"
+		"image" : "../images/tornado-image.jpg",
+		"plan": "Emergencies in case of Tornado.",
+		"link": "/tornadoplan",
+		"edit": "/createtornado"
 	}
 ];
 
-
-
 class Album extends Component {
-
 
 	render(props) {
 		const { classes } = this.props;
@@ -106,11 +115,11 @@ class Album extends Component {
 						{/* End hero unit */}
 						<Grid container spacing={40}>
 							{cards.map(card => (
-								<Grid item key={card} sm={6} md={4} lg={3}>
+								<Grid item key={card.key} sm={6} md={4} lg={3}>
 									<Card className={classes.card}>
 										<CardMedia
 											className={classes.cardMedia}
-											image="https://png.pngtree.com/element_origin_min_pic/17/07/18/0b10451859a267aa49041e96e4bcb491.jpg" // eslint-disable-line max-len
+											image={card.image} // eslint-disable-line max-len
 											title="Image title"
 										/>
 										<CardContent className={classes.cardContent}>
