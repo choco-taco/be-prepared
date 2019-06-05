@@ -101,7 +101,7 @@ router.post('/login', (req, res, next) => {
     successRedirect: '/home',
     failureRedirect: '/',
     failureFlash: true
-  }, res.redirect('http://localhost:3000/home'))(req, res, next);
+  })(req, res, next);
 });
 
 // Logout

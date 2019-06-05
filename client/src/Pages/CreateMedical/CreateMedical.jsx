@@ -134,9 +134,9 @@ class CreateMedical extends React.Component {
                     <i class="fas fa-glass-cheers"></i>
                   </Typography>
                   <Typography variant="subtitle1" align="center">
-                    Your Plan Has been created. You may view your plan by clicking the button below.
+                  Your Plan Has been created. View your plan by clicking the button below.
                   </Typography>
-                  <div align="center"><a href="/singleplan"><Button color="secondary" variant="contained">View Plan</Button></a></div>
+                  <div align="center"><a href="/medicalplan"><Button color="secondary" variant="contained">View Plan</Button></a></div>
                 </React.Fragment>
               ) : (
                   <React.Fragment>

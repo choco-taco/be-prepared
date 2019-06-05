@@ -72,7 +72,7 @@ function MedicalPlan(props) {
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
                 <Grid item>
-                  <Button href="/createplan" variant="contained" >
+                  <Button href="/createfire" variant="contained" >
                    Edit
                   </Button>
                 </Grid>
