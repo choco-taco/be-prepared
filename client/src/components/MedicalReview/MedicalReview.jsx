@@ -84,9 +84,10 @@ class MedicalReview extends Component {
             </Typography>
             {this.state.medical.map(medical => {
               return (
-                <Typography key={medical._id}><i className="fas fa-fire-extinguisher"></i>Type: {medical.type}<br />
-                  <i className="fas fa-map"></i> Plan: {medical.plan}<br />
-                  <i className="fas fa-sticky-note"></i> Notes: {medical.notes}
+                <Typography key={medical._id}><i class="fas fa-ambulance"></i>Type: {medical.type}<br />
+                  Plan: {medical.plan}<br />
+                  Notes: {medical.notes}
+                  <br /><br />
                 </Typography>
               )
             })}
@@ -101,6 +102,7 @@ class MedicalReview extends Component {
                 <Typography key={contacts._id}><i className="fas fa-child"></i> Name: {contacts.name}<br />
                   <i className="fas fa-mobile-alt"></i> Mobile: {contacts.mobile}<br />
                   <i className="fas fa-home"></i> Address: {contacts.address}
+                  <br /><br />
                 </Typography>
               )
             })}

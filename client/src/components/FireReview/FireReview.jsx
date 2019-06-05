@@ -85,8 +85,9 @@ class FireReview extends Component {
             {this.state.fire.map(fire => {
               return (
                 <Typography key={fire._id}><i className="fas fa-fire-extinguisher"></i>Type: {fire.type}<br />
-                  <i className="fas fa-map"></i> Plan: {fire.plan}<br />
-                  <i className="fas fa-sticky-note"></i> Notes: {fire.notes}
+                 Plan: {fire.plan}<br />
+                Notes: {fire.notes}
+                <br /><br />
                 </Typography>
               )
             })}
@@ -101,6 +102,7 @@ class FireReview extends Component {
                 <Typography key={contacts._id}><i className="fas fa-child"></i> Name: {contacts.name}<br />
                   <i className="fas fa-mobile-alt"></i> Mobile: {contacts.mobile}<br />
                   <i className="fas fa-home"></i> Address: {contacts.address}
+                  <br /><br />
                 </Typography>
               )
             })}

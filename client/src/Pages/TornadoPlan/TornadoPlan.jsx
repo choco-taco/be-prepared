@@ -66,7 +66,7 @@ function TornadoPlan(props) {
               </Typography>
 
               <Typography variant="h6" align="center"  paragraph>
-                 This is the emergency plan for Grandma's house.
+                 This is the emergency plan for Tornadoes.
               </Typography>
             
             <div className={classes.heroButtons}>

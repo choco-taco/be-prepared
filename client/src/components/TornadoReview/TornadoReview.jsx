@@ -84,9 +84,10 @@ class TornadoReview extends Component {
             </Typography>
             {this.state.tornado.map(tornado => {
               return (
-                <Typography key={tornado._id}><i className="fas fa-fire-extinguisher"></i>Type: {tornado.type}<br />
-                  <i className="fas fa-map"></i> Plan: {tornado.plan}<br />
-                  <i className="fas fa-sticky-note"></i> Notes: {tornado.notes}
+                <Typography key={tornado._id}><i class="fas fa-poo-storm"></i>Type: {tornado.type}<br />
+                  Plan: {tornado.plan}<br />
+                  Notes: {tornado.notes}
+                  <br /><br />
                 </Typography>
               )
             })}
@@ -101,6 +102,7 @@ class TornadoReview extends Component {
                 <Typography key={contacts._id}><i className="fas fa-child"></i> Name: {contacts.name}<br />
                   <i className="fas fa-mobile-alt"></i> Mobile: {contacts.mobile}<br />
                   <i className="fas fa-home"></i> Address: {contacts.address}
+                  <br /><br />
                 </Typography>
               )
             })}

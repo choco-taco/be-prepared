@@ -84,9 +84,10 @@ class EarthquakeReview extends Component {
             </Typography>
             {this.state.earthquake.map(earthquake => {
               return (
-                <Typography key={earthquake._id}><i className="fas fa-fire-extinguisher"></i>Type: {earthquake.type}<br />
-                  <i className="fas fa-map"></i> Plan: {earthquake.plan}<br />
-                  <i className="fas fa-sticky-note"></i> Notes: {earthquake.notes}
+                <Typography key={earthquake._id}><i class="fas fa-house-damage"></i>Type: {earthquake.type}<br />
+                 Plan: {earthquake.plan}<br />
+                Notes: {earthquake.notes}
+                <br /><br />
                 </Typography>
               )
             })}
@@ -101,6 +102,7 @@ class EarthquakeReview extends Component {
                 <Typography key={contacts._id}><i className="fas fa-child"></i> Name: {contacts.name}<br />
                   <i className="fas fa-mobile-alt"></i> Mobile: {contacts.mobile}<br />
                   <i className="fas fa-home"></i> Address: {contacts.address}
+                  <br /><br />
                 </Typography>
               )
             })}
