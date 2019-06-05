@@ -19,9 +19,17 @@ app.use(express.json());
 require('./config/passport')(passport);
 
 // Express session
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+  session.cookie.secure = true // serve secure cookies
+}
 
 app.use(session({
+  genid: function(req) {
+    return genuuid() // use UUIDs for session IDs
+  },
   secret: 'banana',
+  cookie: {},
   saveUninitialized: false, // don't create session until something stored
   resave: false, //don't save session if unmodified
   store: new MongoStore({
@@ -29,16 +37,7 @@ app.use(session({
       touchAfter: 24 * 3600 // time period in seconds
   })
 }));
-const sess = {
-  secret: 'keyboard cat',
-  cookie: {}
-}
 
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1) // trust first proxy
-  sess.cookie.secure = true // serve secure cookies
-}
-app.use(session(sess))
 
 // Passport middleware
 app.use(passport.initialize());
