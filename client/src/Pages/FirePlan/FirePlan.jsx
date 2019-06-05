@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Navigation from '../../components/Navigation';
 // import ContactForm from '../../components/ContactForm';
 // import EmergencyForm from '../../components/EmergencyForm';
-import Review from '../../components/ReviewForm';
+import FireReview from '../../components/FireReview';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
@@ -66,7 +66,7 @@ function FirePlan(props) {
               </Typography>
 
               <Typography variant="h6" align="center"  paragraph>
-                 This is the emergency plan for Grandma's house.
+                 This is the emergency plan in case of Fire.
               </Typography>
             
             <div className={classes.heroButtons}>
@@ -77,7 +77,7 @@ function FirePlan(props) {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button href="/shareplan" variant="contained" color="primary">
+                  <Button href="/fireshare" variant="contained" color="primary">
                     Share
                   </Button>
                 </Grid>
@@ -93,7 +93,7 @@ function FirePlan(props) {
 
         <main className={classes.layout}>
         <Paper className={classes.paper}>
-        <Review/>
+        <FireReview/>
         </Paper>
         </main>
 

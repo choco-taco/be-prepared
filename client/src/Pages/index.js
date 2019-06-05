@@ -14,7 +14,10 @@ import CreateMedical from './CreateMedical';
 import CreateFire from './CreateFire';
 import CreateEarthquake from './CreateEarthquake';
 import CreateTornado from './CreateTornado';
-
+import MedicalShare from './MedicalShare';
+import FireShare from './FireShare';
+import EarthquakeShare from './EarthquakeShare';
+import TornadoShare from './TornadoShare';
 
 export {
     Home,
@@ -32,7 +35,11 @@ export {
     CreateMedical,
     CreateFire,
     CreateEarthquake,
-    CreateTornado
+    CreateTornado,
+    MedicalShare,
+    FireShare,
+    EarthquakeShare,
+    TornadoShare
 };
 
 export default {
@@ -51,5 +58,9 @@ export default {
     CreateMedical,
     CreateFire,
     CreateEarthquake,
-    CreateTornado
+    CreateTornado,
+    MedicalShare,
+    FireShare,
+    EarthquakeShare,
+    TornadoShare
 };

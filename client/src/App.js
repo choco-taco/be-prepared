@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import './App.css';
-import { SignUp, Home, Landing, LogIn, CreatePlan, SinglePlan, SharePlan, MedicalPlan, FirePlan, EarthquakePlan, TornadoPlan, CreateMedical, CreateFire, CreateEarthquake, CreateTornado} from "./Pages";
+import { SignUp, Home, Landing, LogIn, CreatePlan, SinglePlan, SharePlan, MedicalPlan, FirePlan, EarthquakePlan, TornadoPlan, CreateMedical, CreateFire, CreateEarthquake, CreateTornado, MedicalShare, FireShare, EarthquakeShare, TornadoShare} from "./Pages";
 
 class App extends Component {
   state = {
@@ -40,6 +40,14 @@ class App extends Component {
       <Route exact path={`${process.env.PUBLIC_URL}/createearthquake`} component={CreateEarthquake} />
 
       <Route exact path={`${process.env.PUBLIC_URL}/createtornado`} component={CreateTornado} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/medicalshare`} component={MedicalShare} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/fireshare`} component={FireShare} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/earthquakeshare`} component={EarthquakeShare} />
+
+      <Route exact path={`${process.env.PUBLIC_URL}/tornadoshare`} component={TornadoShare} />
 
     </BrowserRouter>
   );

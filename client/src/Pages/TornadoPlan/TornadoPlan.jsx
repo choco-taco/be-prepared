@@ -77,7 +77,7 @@ function TornadoPlan(props) {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button href="/shareplan" variant="contained" color="primary">
+                  <Button href="/tornadoshare" variant="contained" color="primary">
                     Share
                   </Button>
                 </Grid>

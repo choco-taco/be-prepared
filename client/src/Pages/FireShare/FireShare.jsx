@@ -7,12 +7,12 @@ import classNames from 'classnames';
 import Navigation from '../../components/Navigation';
 // import ContactForm from '../../components/ContactForm';
 // import EmergencyForm from '../../components/EmergencyForm';
-import EarthquakeReview from '../../components/EarthquakeReview';
+// import Review from '../../components/ReviewForm';
 
 // **** STYLES ****
 import { withStyles, MuiThemeProvider,  createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styles from './EarthquakePlan.styles';
+import styles from './FireShare.styles';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -48,7 +48,7 @@ const theme = createMuiTheme({
 });
 
 // *** Landing Page Code ***
-function EarthquakePlan(props) {
+function FireShare(props) {
   const { classes } = props;
 
   return (
@@ -62,23 +62,23 @@ function EarthquakePlan(props) {
             <div className={classes.heroUnit} >
              <div className={classes.heroContent} >
               <Typography component="h1" variant="h2" align="center" color="textPrimary"  gutterBottom >
-                 Earthquake Plan
+                Fire Plan
               </Typography>
 
               <Typography variant="h6" align="center"  paragraph>
-                 This is the emergency plan in case of Earthquake.
+                 Share this QR Code with your fam!
               </Typography>
             
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
                 <Grid item>
-                  <Button href="/createearthquake" variant="contained" >
-                   Edit
+                  <Button href="/home" variant="contained" >
+                   Home
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button href="/earthquakeshare" variant="contained" color="primary">
-                    Share
+                  <Button href="/createfire" variant="contained" color="primary">
+                    Edit
                   </Button>
                 </Grid>
               </Grid>
@@ -93,7 +93,7 @@ function EarthquakePlan(props) {
 
         <main className={classes.layout}>
         <Paper className={classes.paper}>
-        <EarthquakeReview/>
+        <img src="../../images/qr-code-fire.png" alt="fuuuuck"/>
         </Paper>
         </main>
 
@@ -104,8 +104,8 @@ function EarthquakePlan(props) {
   );
 }
 
-EarthquakePlan.propTypes = {
+FireShare.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(EarthquakePlan);
+export default withStyles(styles)(FireShare);
