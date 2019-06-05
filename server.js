@@ -25,6 +25,7 @@ app.use(session({
     return genuuid() // use UUIDs for session IDs
   },
   secret: 'banana',
+  cookie: { secure: true },
   saveUninitialized: false, // don't create session until something stored
   resave: false, //don't save session if unmodified
   store: new MongoStore({
@@ -36,7 +37,7 @@ app.use(session({
 const sess = {
   secret: 'keyboard cat',
   cookie: {},
-  resave: false //don't save session if unmodified
+  resave: false
 }
  
 if (app.get('env') === 'production') {
