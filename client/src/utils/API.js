@@ -1,14 +1,7 @@
 import axios from "axios";
 
 export default {
-    // **** USER LOGIN API ****
-    userSignUp: function (UserData) {
-        return axios.post("api/account/signup", UserData);
-    },
-    userLogIn: function (UserData) {
-        return axios.post("/api/account/signin", UserData);
-    },
-
+  
     // **** CONTACT API ****
     getContacts: function () {
         return axios.get("/api/contacts");
@@ -50,6 +43,7 @@ export default {
         return axios.delete("/api/medical/" + id);
     },
 
+        // **** USER LOGIN API ****
     userSignUp: function (UserData) {
         return axios.post("api/user/register", UserData);
     },
